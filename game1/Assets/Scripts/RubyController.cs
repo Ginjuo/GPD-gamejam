@@ -32,12 +32,17 @@ public class RubyController : MonoBehaviour
     Animator animator;
     Vector2 lookDirection = new Vector2(1, 0);
 
-    public int projectileForce = 0;
+    public int projectileForce = 300;
     public GameObject projectilePrefab;
 
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
+
+    AudioSource audioSource;
+
+    public AudioClip launchedClip;
+    public AudioClip hitClip;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +52,12 @@ public class RubyController : MonoBehaviour
 
         timer = changeTime;                     // Drunk movement
         drunk_center = rigidbody2d.position;    // Drunk movement
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 
     void Launch()
@@ -56,12 +67,26 @@ public class RubyController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(lookDirection, projectileForce);
 
+        PlaySound(launchedClip);
         animator.SetTrigger("Launch");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }  
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
@@ -120,6 +145,7 @@ public class RubyController : MonoBehaviour
     {
         if (amount < 0)
         {
+            PlaySound(hitClip);
             animator.SetTrigger("Hit");
             if (isInvincible)
                 return;
@@ -135,8 +161,8 @@ public class RubyController : MonoBehaviour
         drunk_speed_clamp_x = char_move_x ? 1.5f : 0.8f;
         drunk_speed_clamp_y = char_move_y ? 1.5f : 0.8f;
 
-        Debug.Log("char_move_x" + char_move_x);
-        Debug.Log("char_move_y" + char_move_y);
+        //Debug.Log("char_move_x" + char_move_x);
+        //Debug.Log("char_move_y" + char_move_y);
 
         if (char_move_x || char_move_y)
         {
