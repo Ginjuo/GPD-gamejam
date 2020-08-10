@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -44,6 +45,10 @@ public class RubyController : MonoBehaviour
     public AudioClip launchedClip;
     public AudioClip hitClip;
     // Start is called before the first frame update
+
+    //Corona
+    public int Contraction_chance;
+    public bool HasCOVID;
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -124,14 +129,44 @@ public class RubyController : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer < 0)
         {
-            drunk_direction = Random.value > 0.5 ? - drunk_direction : drunk_direction;
-            drunk_vert = Random.value > 0.5 ? !drunk_vert : drunk_vert;
+            drunk_direction = UnityEngine.Random.value > 0.5 ? - drunk_direction : drunk_direction;
+            drunk_vert = UnityEngine.Random.value > 0.5 ? !drunk_vert : drunk_vert;
             timer = changeTime;
         }
     }
 
+    private void GetCOVID(EnemyController NPC)
+    {
+        if (!HasCOVID && NPC != null && NPC.HasCOVID)
+        {
+            if (UnityEngine.Random.Range(0, 101) <= Contraction_chance)
+            {
+                HasCOVID = true;
+                Debug.Log("Player got COVID from: " + NPC.Name);
+            }
+        }       
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        GetCOVID(collider.gameObject.GetComponent<EnemyController>());
+    }
+
+    //void OnTriggerStay2D(Collider2D collider)
+    //{
+    //    if (isInvincible)
+    //        return;
+
+    //    isInvincible = true;
+    //    invincibleTimer = timeInvincible;
+
+    //    GetCOVID(collider.gameObject.GetComponent<EnemyController>());
+        
+    //}
+
     void FixedUpdate()
     {
+        Console.WriteLine("FIX UPDATE PLAYER");
         Vector2 position = rigidbody2d.position;
         position.x = position.x + speed * horizontal * Time.deltaTime;
         position.y = position.y + speed * vertical * Time.deltaTime;

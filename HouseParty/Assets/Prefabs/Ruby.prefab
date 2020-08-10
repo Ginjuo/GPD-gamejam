@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5775270936127513686}
   - component: {fileID: 5120605148894429130}
   - component: {fileID: -1472926300560361589}
+  - component: {fileID: 2162311089981726865}
   m_Layer: 8
   m_Name: Ruby
   m_TagString: Untagged
@@ -102,10 +103,18 @@ MonoBehaviour:
   maxHealth: 5
   speed: 3
   timeInvincible: 2
+  changeTime: 0.5
+  drunk_speed_x: 0
+  drunk_speed_y: 0
+  char_move_x: 0
+  char_move_y: 0
+  drunk_pos_clamp: 0
   projectileForce: 300
   projectilePrefab: {fileID: 5142704440091888805, guid: 235ca664326758c419c36412fd99f552, type: 3}
   launchedClip: {fileID: 8300000, guid: b2edfd40873655249ba0e01a5cf705be, type: 3}
   hitClip: {fileID: 8300000, guid: 9b1bb1f450b7d444fa4a8019d13519a7, type: 3}
+  Contraction_chance: 1
+  HasCOVID: 0
 --- !u!50 &5873780326788063947
 Rigidbody2D:
   serializedVersion: 4
@@ -268,3 +277,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!70 &2162311089981726865
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2565340004664931200}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0070225596, y: 0.6025459}
+  m_Size: {x: 0.86800396, y: 1.2893637}
+  m_Direction: 0

@@ -27,10 +27,7 @@ public class Projectile : MonoBehaviour
         
         //we also add a debug log to know what the projectile touch
         EnemyController e = other.collider.GetComponent<EnemyController>();
-        if (e != null)
-        {
-            e.Fix();
-        }
+        
         Destroy(gameObject);
     }
 
