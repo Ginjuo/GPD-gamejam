@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     private float timer;
     private bool broken = true;
     private Animator animator;
+    public TextMeshProUGUI textArea;
 
     // <Drunk movement>
     public float drunk_pos_clamp; //0.2f    
@@ -39,17 +40,12 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         drunk_center = rigidbody2D.position;
         drunk_direction = Random.value > 0.5 ? -drunk_direction : drunk_direction;
-        nameText.GetComponentInChildren<TextMeshProUGUI>().text = Name;
-
+        textArea = nameText.GetComponentInChildren<TextMeshProUGUI>();
+        textArea.text = Name;
     }
 
     void Update()
     {
-        if (!broken)
-        {
-            return;
-        }
-
         timer -= Time.deltaTime;
 
         if (timer < 0)
@@ -97,17 +93,17 @@ public class EnemyController : MonoBehaviour
 
         EnemyController NPC = collider.gameObject.GetComponent<EnemyController>();
         RubyController player = collider.gameObject.GetComponent<RubyController>();
-        string transmitterName = null;
-        if (NPC != null && NPC.HasCOVID)
-            transmitterName = NPC.Name;
 
-        if (player != null && player.HasCOVID)
-            transmitterName = "player";
+        if (NPC != null && NPC.HasCOVID && Random.Range(0, 100) <= Contraction_chance)
+        {          
+            HasCOVID = true;
+            Debug.Log($"{Name} got COVID from: " + NPC.Name);
+        }
 
-        if (transmitterName != null && Random.Range(0, 101) <= Contraction_chance)
+        if (player != null && player.HasCOVID && Random.Range(0, 100) <= Contraction_chance)
         {
             HasCOVID = true;
-            Debug.Log($"{Name} got COVID from: " + transmitterName);
+            Debug.Log($"{Name} got COVID from: Player");
         }
     }
 
@@ -130,7 +126,6 @@ public class EnemyController : MonoBehaviour
 
     public void Drunk(ref Vector2 position)
     {
-
         drunk_speed_y = Mathf.Clamp(drunk_speed_y + drunk_direction * drunk_acceleration, -drunk_speed_clamp, drunk_speed_clamp);
         
         drunk_speed_x = Mathf.Clamp(drunk_speed_x + drunk_direction * drunk_acceleration, -drunk_speed_clamp, drunk_speed_clamp);

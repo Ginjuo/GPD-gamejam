@@ -262,6 +262,10 @@ PrefabInstance:
       propertyPath: Contraction_chance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
 --- !u!1001 &189391161
@@ -330,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
       propertyPath: Contraction_chance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
@@ -434,6 +442,10 @@ PrefabInstance:
     - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
       propertyPath: Contraction_chance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
@@ -704,6 +716,10 @@ PrefabInstance:
     - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
       propertyPath: Contraction_chance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
@@ -1216,6 +1232,10 @@ PrefabInstance:
       propertyPath: Contraction_chance
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
 --- !u!1 &1279622155
@@ -1554,6 +1574,10 @@ PrefabInstance:
     - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
       propertyPath: Contraction_chance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869564206510566291, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}
+      propertyPath: transmitShowingTime
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f8de4be81d6d0e4ab8b9c510aa8e705, type: 3}

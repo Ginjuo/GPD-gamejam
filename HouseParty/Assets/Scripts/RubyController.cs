@@ -139,7 +139,7 @@ public class RubyController : MonoBehaviour
     {
         if (!HasCOVID && NPC != null && NPC.HasCOVID)
         {
-            if (UnityEngine.Random.Range(0, 101) <= Contraction_chance)
+            if (UnityEngine.Random.Range(0, 100) <= Contraction_chance)
             {
                 HasCOVID = true;
                 Debug.Log("Player got COVID from: " + NPC.Name);
