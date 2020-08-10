@@ -147,10 +147,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e43ddbff1f5b2347ad5e4386ee5b075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   vertical: 0
-  changeTime: 3
-  smokeEffect: {fileID: 2192587067477468335}
+  changeTime: 2
+  smokeEffect: {fileID: 0}
+  drunk_pos_clamp: 0.4
+  drunk_speed_clamp: 0.1
+  drunk_acceleration: 0.2
 --- !u!95 &5999047389965307748
 Animator:
   serializedVersion: 3
@@ -326,10 +329,5 @@ PrefabInstance:
 --- !u!4 &6974103395024332061 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2014551563013011852, guid: 1ce83e58ddbbc984c8bef999fafe88c2, type: 3}
-  m_PrefabInstance: {fileID: 8880502458071932049}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &2192587067477468335 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 7300409477012944958, guid: 1ce83e58ddbbc984c8bef999fafe88c2, type: 3}
   m_PrefabInstance: {fileID: 8880502458071932049}
   m_PrefabAsset: {fileID: 0}
