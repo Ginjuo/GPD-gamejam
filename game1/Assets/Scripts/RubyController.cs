@@ -22,12 +22,24 @@ public class RubyController : MonoBehaviour
     Rigidbody2D rigidbody2d;
     float horizontal;
     float vertical;
+
+    AudioSource audioSource;
+
+    public AudioClip launchedClip;
+    public AudioClip hitClip;
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
         _currentHealth = maxHealth;
+
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public void PlaySound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
     }
 
     void Launch()
@@ -37,12 +49,26 @@ public class RubyController : MonoBehaviour
         Projectile projectile = projectileObject.GetComponent<Projectile>();
         projectile.Launch(lookDirection, projectileForce);
 
+        PlaySound(launchedClip);
         animator.SetTrigger("Launch");
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }  
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.C))
         {
             Launch();
@@ -84,6 +110,7 @@ public class RubyController : MonoBehaviour
     {
         if (amount < 0)
         {
+            PlaySound(hitClip);
             animator.SetTrigger("Hit");
             if (isInvincible)
                 return;
