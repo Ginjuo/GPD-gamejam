@@ -1,136 +1,131 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+namespace Assets.Scripts
 {
-    //Random
-    public float changeTime = 0;
-    public string Name;
-    public Canvas nameText;
-    private Rigidbody2D rigidbody2D;
-    private float timer;
-    private bool broken = true;
-    private Animator animator;
-    public TextMeshProUGUI textArea;
-
-    // <Drunk movement>
-    public float drunk_pos_clamp; //0.2f    
-    public float drunk_speed_clamp; //0.1f
-    public float drunk_acceleration; //0.2f
-    private int drunk_direction = 1;
-    private bool drunk_vert;
-    private float drunk_speed_x;
-    private float drunk_speed_y;
-    private Vector2 drunk_center;
-    // </Drunk movement>
-
-    //Corona
-    public int Contraction_chance;
-    public bool HasCOVID;
-    public float timeInvincible = 2.0f;
-    private bool isInvincible;
-    private float invincibleTimer;
-
-    void Start()
+    public class EnemyController : ObjectiveLogic
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-        timer = changeTime;
-        animator = GetComponent<Animator>();
-        drunk_center = rigidbody2D.position;
-        drunk_direction = Random.value > 0.5 ? -drunk_direction : drunk_direction;
-        textArea = nameText.GetComponentInChildren<TextMeshProUGUI>();
-        textArea.text = Name;
-    }
+        //Random
+        public float ChangeTime = 0;
+        //public string Name;
+        private Rigidbody2D _rigidbody2D;
+        private float _timer;
+        private bool _broken = true;
+        private Animator _animator;
+        public TextMeshProUGUI NameText;
 
-    void Update()
-    {
-        timer -= Time.deltaTime;
+        // <Drunk movement>
+        public float DrunkPosClamp; //0.2f    
+        public float DrunkSpeedClamp; //0.1f
+        public float DrunkAcceleration; //0.2f
+        private int _drunkDirection = 1;
+        private bool _drunkVert;
+        private float _drunkSpeedX;
+        private float _drunkSpeedY;
+        private Vector2 _drunkCenter;
+        // </Drunk movement>
 
-        if (timer < 0)
+        //Corona
+        //public int ContractionChance;
+        //public bool HasCovid;
+        public float TimeInvincible = 2.0f;
+        private bool _isInvincible;
+        private float _invincibleTimer;
+
+        void Start()
         {
-            drunk_direction = Random.value > 0.5 ? -drunk_direction : drunk_direction;
-            drunk_vert = Random.value > 0.5 ? !drunk_vert : drunk_vert;
-            timer = changeTime;
+            _rigidbody2D = GetComponent<Rigidbody2D>();
+            _timer = ChangeTime;
+            _animator = GetComponent<Animator>();
+            _drunkCenter = _rigidbody2D.position;
+            _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
+            NameText.text = GameController.Instance.GetName();
+            Name = NameText.text;
+
+            HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
+            HandleDialogInit(Name);
         }
 
-        if (isInvincible)
+        void Update()
         {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-                isInvincible = false;
-        }
-    }
+            _timer -= Time.deltaTime;
 
-    void FixedUpdate()
-    {
-        if (!broken)
+            if (_timer < 0)
+            {
+                _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
+                _drunkVert = Random.value > 0.5 ? !_drunkVert : _drunkVert;
+                _timer = ChangeTime;
+            }
+
+            if (_isInvincible)
+            {
+                _invincibleTimer -= Time.deltaTime;
+                if (_invincibleTimer < 0)
+                    _isInvincible = false;
+            }
+        }
+
+        void FixedUpdate()
         {
-            return;
-        }
-        Vector2 position = rigidbody2D.position;
-        Drunk(ref position);
+            if (!_broken)
+            {
+                return;
+            }
+            Vector2 position = _rigidbody2D.position;
+            Drunk(ref position);
 
-        if (drunk_vert)
+            if (_drunkVert)
+            {
+                _animator.SetFloat("Move X", 0);
+                _animator.SetFloat("Move Y", _drunkDirection);
+            }
+            else
+            {
+                _animator.SetFloat("Move X", _drunkDirection);
+                _animator.SetFloat("Move Y", 0);
+            }
+
+            _rigidbody2D.MovePosition(position);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collider)
         {
-            animator.SetFloat("Move X", 0);
-            animator.SetFloat("Move Y", drunk_direction);
+            if (ShowsDialog)
+                HandleObjective();
+
+            CovidLogic cl = collider.gameObject.GetComponent<CovidLogic>();
+            if (cl == null)
+                return;
+            GetCovid(cl);
         }
-        else
+
+        private void OnTriggerExit2D(Collider2D collider)
         {
-            animator.SetFloat("Move X", drunk_direction);
-            animator.SetFloat("Move Y", 0);
+            if (!ShowsDialog)
+                return;
+            DialogBox.SetActive(false);
         }
 
-        rigidbody2D.MovePosition(position);
-    }
+        //void OnTriggerStay2D(Collider2D collider)
+        //{
+        //    if (isInvincible)
+        //        return;
 
-    private void GetCOVID(Collider2D collider)
-    {
-        if (HasCOVID)
-            return;
+        //    isInvincible = true;
+        //    invincibleTimer = timeInvincible;
 
-        EnemyController NPC = collider.gameObject.GetComponent<EnemyController>();
-        RubyController player = collider.gameObject.GetComponent<RubyController>();
+        //    GetCOVID(collider);
 
-        if (NPC != null && NPC.HasCOVID && Random.Range(0, 100) <= Contraction_chance)
-        {          
-            HasCOVID = true;
-            Debug.Log($"{Name} got COVID from: " + NPC.Name);
-        }
+        //}
 
-        if (player != null && player.HasCOVID && Random.Range(0, 100) <= Contraction_chance)
+        public void Drunk(ref Vector2 position)
         {
-            HasCOVID = true;
-            Debug.Log($"{Name} got COVID from: Player");
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        GetCOVID(collider);
-    }
-
-    //void OnTriggerStay2D(Collider2D collider)
-    //{
-    //    if (isInvincible)
-    //        return;
-
-    //    isInvincible = true;
-    //    invincibleTimer = timeInvincible;
-
-    //    GetCOVID(collider);
-
-    //}
-
-    public void Drunk(ref Vector2 position)
-    {
-        drunk_speed_y = Mathf.Clamp(drunk_speed_y + drunk_direction * drunk_acceleration, -drunk_speed_clamp, drunk_speed_clamp);
+            _drunkSpeedY = Mathf.Clamp(_drunkSpeedY + _drunkDirection * DrunkAcceleration, -DrunkSpeedClamp, DrunkSpeedClamp);
         
-        drunk_speed_x = Mathf.Clamp(drunk_speed_x + drunk_direction * drunk_acceleration, -drunk_speed_clamp, drunk_speed_clamp);
+            _drunkSpeedX = Mathf.Clamp(_drunkSpeedX + _drunkDirection * DrunkAcceleration, -DrunkSpeedClamp, DrunkSpeedClamp);
         
-        position.y = Mathf.Clamp(position.y + Time.deltaTime * drunk_speed_y, drunk_center.y - drunk_pos_clamp, drunk_center.y + drunk_pos_clamp);
-        position.x = Mathf.Clamp(position.x + Time.deltaTime * drunk_speed_x, drunk_center.x - drunk_pos_clamp, drunk_center.x + drunk_pos_clamp);
+            position.y = Mathf.Clamp(position.y + Time.deltaTime * _drunkSpeedY, _drunkCenter.y - DrunkPosClamp, _drunkCenter.y + DrunkPosClamp);
+            position.x = Mathf.Clamp(position.x + Time.deltaTime * _drunkSpeedX, _drunkCenter.x - DrunkPosClamp, _drunkCenter.x + DrunkPosClamp);
+        }
     }
 }

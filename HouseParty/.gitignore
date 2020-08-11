@@ -1,9 +1,4 @@
 ###########################
-########## CUSTOM  ########
-###########################
-/[Aa]ssets/Cartoon_Texture_Pack*
-
-###########################
 ########## Unity ##########
 ###########################
 
@@ -20,7 +15,7 @@
 /[Mm]emoryCaptures/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
-#!/[Aa]ssets/**/*.meta
+!/[Aa]ssets/**/*.meta
 
 # Uncomment this line if you wish to ignore the asset store tools plugin
 # /[Aa]ssets/AssetStoreTools*
@@ -127,3 +122,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+###########################
+########## CUSTOM  ########
+###########################
+/[Aa]ssets/Cartoon_Texture_Pack*
+/[Aa]ssets/2D_urban_cars*
