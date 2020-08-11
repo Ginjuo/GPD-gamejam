@@ -1,24 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class HealthCollectible : MonoBehaviour
+namespace Assets.Scripts
 {
-    public AudioClip collectedClip;
-    void OnTriggerEnter2D(Collider2D other)
+    public class HealthCollectible : MonoBehaviour
     {
-        RubyController controller = other.GetComponent<RubyController>();
-
-        if (controller != null)
+        public AudioClip collectedClip;
+        void OnTriggerEnter2D(Collider2D other)
         {
-            if (controller.currentHealth < controller.maxHealth)
-            {
-                controller.ChangeHealth(1);
-                Destroy(gameObject);
+            RubyController controller = other.GetComponent<RubyController>();
 
-                controller.PlaySound(collectedClip);
+            if (controller != null)
+            {
+            
             }
         }
-    }
 
+    }
 }
