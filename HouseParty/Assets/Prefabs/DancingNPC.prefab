@@ -304,6 +304,30 @@ PrefabInstance:
       propertyPath: Contraction_chance
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: TextArea
+      value: 
+      objectReference: {fileID: 8703960840273237242}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: ChangeTime
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: DrunkPosClamp
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: DrunkSpeedClamp
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: DrunkAcceleration
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
+      propertyPath: ContractionChance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 768411813253470655, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.152749

@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DamageZone : MonoBehaviour
+namespace Assets.Scripts
 {
-    void OnTriggerStay2D(Collider2D other)
+    public class DamageZone : MonoBehaviour
     {
-        RubyController controller = other.GetComponent<RubyController>();
-
-        if (controller != null)
+        void OnTriggerStay2D(Collider2D other)
         {
-            controller.ChangeHealth(-1);
+            RubyController controller = other.GetComponent<RubyController>();
+
+            if (controller != null)
+            {
+
+            }
         }
     }
 }

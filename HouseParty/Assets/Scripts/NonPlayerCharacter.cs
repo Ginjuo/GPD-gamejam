@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class NonPlayerCharacter : MonoBehaviour
 {
-    public float displayTime = 4.0f;
-    public GameObject dialogBox;
-    float timerDisplay;
+    public GameObject DialogBox;
     // Start is called before the first frame update
     void Start()
     {
-        dialogBox.SetActive(false);
-        timerDisplay = -1.0f;
+        DialogBox.SetActive(false);
     }
 
     void Update()
     {
-        if (timerDisplay >= 0)
-        {
-            timerDisplay -= Time.deltaTime;
-            if (timerDisplay < 0)
-            {
-                dialogBox.SetActive(false);
-            }
-        }
+       
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        Debug.Log("Enter dialog displaying!");
+        DialogBox.SetActive(true);
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        Debug.Log("Enter dialog not displaying!");
+        DialogBox.SetActive(false);
     }
 
     public void DisplayDialog()
     {
         Debug.Log("Dialog displaying!");
-        timerDisplay = displayTime;
-        dialogBox.SetActive(true);
+        DialogBox.SetActive(true);
     }
 }
