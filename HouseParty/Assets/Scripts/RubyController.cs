@@ -80,7 +80,7 @@ namespace Assets.Scripts
                     NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
                     if (character != null)
                     {
-                        character.DisplayDialog();
+                        //character.DisplayDialog();
                     }  
                 }
             }

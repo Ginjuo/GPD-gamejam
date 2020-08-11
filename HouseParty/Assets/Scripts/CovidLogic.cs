@@ -8,15 +8,15 @@ namespace Assets.Scripts
 {
     public class CovidLogic : MonoBehaviour
     {
-        public bool HasCovid;
+        public bool HasCovid, CanGetCovid;
         public int ContractionChance;
         public string Name;
         public void GetCovid(CovidLogic covidLogic)
         {
-            if (HasCovid)
+            if (HasCovid || CanGetCovid)
                 return;
 
-            if (covidLogic.HasCovid && UnityEngine.Random.Range(0, 100) <= ContractionChance)
+            if (covidLogic.HasCovid && Random.Range(0, 100) <= ContractionChance)
             {
                 HasCovid = true;
                 Debug.Log($"{Name} got COVID from: " + covidLogic.Name);

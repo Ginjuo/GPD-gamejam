@@ -1,36 +1,33 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts;
+using TMPro;
 using UnityEngine;
 
-public class NonPlayerCharacter : MonoBehaviour
+public class NonPlayerCharacter : ObjectiveLogic
 {
-    public GameObject DialogBox;
+    private string _dialogText;
     // Start is called before the first frame update
     void Start()
     {
-        DialogBox.SetActive(false);
+        HandleDialogInit(Name);
     }
 
     void Update()
-    {
+    { 
        
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        Debug.Log("Enter dialog displaying!");
-        DialogBox.SetActive(true);
+        if (ShowsDialog)
+            HandleObjective();
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        Debug.Log("Enter dialog not displaying!");
+        if (!ShowsDialog)
+            return;
         DialogBox.SetActive(false);
-    }
-
-    public void DisplayDialog()
-    {
-        Debug.Log("Dialog displaying!");
-        DialogBox.SetActive(true);
     }
 }

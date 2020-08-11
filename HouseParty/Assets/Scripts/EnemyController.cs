@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts
 {
-    public class EnemyController : CovidLogic
+    public class EnemyController : ObjectiveLogic
     {
         //Random
         public float ChangeTime = 0;
@@ -12,7 +12,7 @@ namespace Assets.Scripts
         private float _timer;
         private bool _broken = true;
         private Animator _animator;
-        public TextMeshProUGUI TextArea;
+        public TextMeshProUGUI NameText;
 
         // <Drunk movement>
         public float DrunkPosClamp; //0.2f    
@@ -39,8 +39,11 @@ namespace Assets.Scripts
             _animator = GetComponent<Animator>();
             _drunkCenter = _rigidbody2D.position;
             _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
-            TextArea.text = GameController.Instance.GetName();
-            Name = TextArea.text;
+            NameText.text = GameController.Instance.GetName();
+            Name = NameText.text;
+
+            HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
+            HandleDialogInit(Name);
         }
 
         void Update()
@@ -87,10 +90,20 @@ namespace Assets.Scripts
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
+            if (ShowsDialog)
+                HandleObjective();
+
             CovidLogic cl = collider.gameObject.GetComponent<CovidLogic>();
             if (cl == null)
                 return;
             GetCovid(cl);
+        }
+
+        private void OnTriggerExit2D(Collider2D collider)
+        {
+            if (!ShowsDialog)
+                return;
+            DialogBox.SetActive(false);
         }
 
         //void OnTriggerStay2D(Collider2D collider)
