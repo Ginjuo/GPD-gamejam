@@ -178,6 +178,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5775270936127513686, guid: 2948fe16711123945aaead4704abc0b7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.03214079
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775270936127513686, guid: 2948fe16711123945aaead4704abc0b7, type: 3}
+      propertyPath: m_Size.x
+      value: 0.17837715
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775270936127513686, guid: 2948fe16711123945aaead4704abc0b7, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.20397401
+      objectReference: {fileID: 0}
+    - target: {fileID: 5775270936127513686, guid: 2948fe16711123945aaead4704abc0b7, type: 3}
+      propertyPath: m_Size.y
+      value: 0.12195635
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2948fe16711123945aaead4704abc0b7, type: 3}
 --- !u!4 &100200051 stripped
@@ -568,7 +584,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.89000094, y: -4.040244, z: -10}
+  m_LocalPosition: {x: 0.89181674, y: -7.977111, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 335202625}
@@ -975,9 +991,10 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 12, y: 12.2}
-      - {x: -21.1, y: 12.2}
-      - {x: -21.1, y: -7.9}
-      - {x: 12, y: -7.9}
+      - {x: 11.794865, y: 14.064155}
+      - {x: -21.1, y: 14.244833}
+      - {x: -21.143496, y: -11.815636}
+      - {x: 12.043499, y: -11.90265}
       - {x: 12, y: 12.2}
 --- !u!4 &798854509
 Transform:
