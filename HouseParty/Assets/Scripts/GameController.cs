@@ -78,6 +78,8 @@ namespace Assets.Scripts
             UiText.text = objectiveText;
             CurrentObjectiveNumber = objectiveNumber;
             NextObjectiveNumber = objectiveNumber + 1;
+
+            //Loader.Load(Loader.Scene.EndscreenTimer);
         }
 
         public string GetName()

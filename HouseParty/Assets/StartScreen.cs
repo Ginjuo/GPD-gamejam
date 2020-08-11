@@ -6,6 +6,6 @@ public class StartScreen : MonoBehaviour
 {
     public void StartGame()
     {
-        Loader.Load(Loader.Scene.EndscreenTimer);
+        Loader.Load(Loader.Scene.MainScene);
     }
 }
