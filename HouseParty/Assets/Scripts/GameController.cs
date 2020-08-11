@@ -28,6 +28,11 @@ namespace Assets.Scripts
 
         public int NextObjectiveNumber { get; set; } = 1;
 
+        public int LastObjectiveNumber => 5;
+
+        public bool StartEndTimer { get; set; } = false;
+        private float _timer = 2.0f;
+
         void Awake()
         {
             DontDestroyOnLoad(this);
@@ -78,8 +83,20 @@ namespace Assets.Scripts
             UiText.text = objectiveText;
             CurrentObjectiveNumber = objectiveNumber;
             NextObjectiveNumber = objectiveNumber + 1;
+        }
 
-            //Loader.Load(Loader.Scene.EndscreenTimer);
+        void Update()
+        {
+            if (StartEndTimer)
+            {
+                _timer -= Time.deltaTime;
+
+                if (_timer < 0)
+                {
+                    Loader.Load(Loader.Scene.EndscreenTimer);
+                }
+            }
+
         }
 
         public string GetName()

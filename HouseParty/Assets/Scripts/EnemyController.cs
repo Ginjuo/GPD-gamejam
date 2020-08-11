@@ -43,7 +43,7 @@ namespace Assets.Scripts
             Name = NameText.text;
 
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
-            HandleDialogInit(Name);
+            HandleDialogInit();
         }
 
         void Update()

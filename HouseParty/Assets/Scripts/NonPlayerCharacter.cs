@@ -6,11 +6,10 @@ using UnityEngine;
 
 public class NonPlayerCharacter : ObjectiveLogic
 {
-    private string _dialogText;
     // Start is called before the first frame update
     void Start()
     {
-        HandleDialogInit(Name);
+        HandleDialogInit();
     }
 
     void Update()

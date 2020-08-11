@@ -15,7 +15,7 @@ namespace Assets.Scripts
         public bool ShowsDialog;
         public TextMeshProUGUI DialogText;
 
-        public void HandleDialogInit(string name)
+        public void HandleDialogInit()
         {
             if (DialogBox == null)
                 return;
@@ -27,9 +27,9 @@ namespace Assets.Scripts
             }
         }
 
+
         public void HandleObjective()
         {
-            Debug.Log($"{HandlesObjective} is validating set active");
             if (HandlesObjective == GameController.Instance.CurrentObjectiveNumber)
                 DialogBox.SetActive(true);
 
@@ -37,6 +37,9 @@ namespace Assets.Scripts
             {
                 DialogBox.SetActive(true);
                 GameController.Instance.SetCurrentObjective(HandlesObjective);
+
+                if (GameController.Instance.LastObjectiveNumber == HandlesObjective)
+                    GameController.Instance.StartEndTimer = true;
             }
         }
     }
