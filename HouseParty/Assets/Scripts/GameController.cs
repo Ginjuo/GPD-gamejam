@@ -49,8 +49,8 @@ namespace Assets.Scripts
         void Awake()
         {
             Instance = this;
-            _userDefinedNames = NameHolder.Instance.GetNames();
-            _playerName = NameHolder.Instance.PlayerName;
+            _userDefinedNames = NameHolder.Instance.GetNpcNames();
+            _playerName = NameHolder.Instance.GetPlayerName();
             if (_userDefinedNames.Count == 0)
             {
                 NameOfDrinkRecipient = _predefinedNames[0];
