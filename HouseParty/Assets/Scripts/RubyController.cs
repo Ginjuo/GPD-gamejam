@@ -25,6 +25,9 @@ namespace Assets.Scripts
         public float drunk_amplitude = 0.005f;
         // </Drunk movement>
 
+        // World boundaries
+        private float minX, maxX, minY, maxY;
+
         // Audio stuff
         private AudioSource _audioSource;
         public AudioClip LoadClip;
@@ -42,6 +45,16 @@ namespace Assets.Scripts
             Name = "player";
 
             PlaySound(LoadClip);
+
+            // World boundaries
+            float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+            Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
+            Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1,1, camDistance));
+            
+            minX = bottomCorner.x;
+            maxX = topCorner.x;
+            minY = bottomCorner.y;
+            maxY = topCorner.y;
         }
 
         public void PlaySound(AudioClip clip)
@@ -107,6 +120,22 @@ namespace Assets.Scripts
                 if (_invincibleTimer < 0)
                     _isInvincible = false;
             }
+
+            // <World boundaries>
+            // Get current position
+            Vector3 pos = transform.position;
+    
+            // Horizontal contraint
+            if(pos.x < minX) pos.x = minX;
+            if(pos.x > maxX) pos.x = maxX;
+    
+            // vertical contraint
+            if(pos.y < minY) pos.y = minY;
+            if(pos.y > maxY) pos.y = maxY;
+    
+            // Update position
+            transform.position = pos;
+            // </World boundaries>
         }
 
         private void OnTriggerEnter2D(Collider2D collider)
