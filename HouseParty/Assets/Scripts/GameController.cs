@@ -110,6 +110,7 @@ namespace Assets.Scripts
             if (objectiveNumber < CurrentObjectiveNumber || !_objectiveTextDict.TryGetValue(objectiveNumber, out string objectiveText))
                 return;
 
+            Debug.Log($"Current objective in controller: {CurrentObjectiveNumber}. Next objective: {NextObjectiveNumber}");
             UiText.text = objectiveText;
             CurrentObjectiveNumber = objectiveNumber;
             NextObjectiveNumber = objectiveNumber + 1;
