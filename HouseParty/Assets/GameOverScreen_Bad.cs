@@ -7,6 +7,6 @@ public class GameOverScreen_Bad : MonoBehaviour
 {
     public void ReplayGame()
     {
-        Loader.Load(Loader.Scene.Startscreen);
+        Loader.Load(Loader.Scene.TrueScene);
     }
 }
