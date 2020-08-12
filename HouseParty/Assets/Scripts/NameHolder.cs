@@ -30,6 +30,14 @@ namespace Assets.Scripts
             Instance = this;
         }
 
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+
         public bool SetPlayerName()
         {
             if (PlayerName.text != String.Empty)
