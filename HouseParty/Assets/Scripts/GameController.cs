@@ -36,7 +36,7 @@ namespace Assets.Scripts
                 _timer -= Time.deltaTime;
 
             if (_timer < 0 || EndTimer < 0)
-                Loader.Load(Loader.Scene.EndscreenTimer);
+                Loader.Load(Loader.Scene.StdEndScreen);
 
         }
 

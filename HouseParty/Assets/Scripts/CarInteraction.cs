@@ -13,7 +13,7 @@ namespace Assets.Scripts
             if (rc == null)
                 return;
 
-            Loader.Load(Loader.Scene.EndscreenTimer); ;
+            Loader.Load(Loader.Scene.StdEndScreen);
         }
     }
 }

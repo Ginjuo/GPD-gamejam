@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/TrueScene.unity
     guid: 019a532016be3de4f85a394584361883
   - enabled: 1
-    path: Assets/Scenes/EndscreenTimer.unity
+    path: Assets/Scenes/StdEndScreen.unity
     guid: 61164f29cf5b2b249a852f8e836c4a9d
   m_configObjects: {}
