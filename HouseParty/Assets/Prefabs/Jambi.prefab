@@ -221,7 +221,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.5248051, y: 0.43903708}
+  m_Offset: {x: -0.035241365, y: -0.26746833}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -232,7 +232,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.9756756, y: 1.9939947}
+  m_Size: {x: 1.571372, y: 0.520632}
   m_EdgeRadius: 0
 --- !u!114 &924748223525937200
 MonoBehaviour:
@@ -247,10 +247,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HasCovid: 0
-  CanGetCovid: 0
-  ContractionChance: 0
+  CanGetCovid: 1
+  ContractionChance: 100
   Name: NPC
-  HandlesObjective: -1
+  HandlesObjective: 5
   DialogBox: {fileID: 7674673987735106166}
   ShowsDialog: 1
   DialogText: {fileID: 1692317294036806006}
