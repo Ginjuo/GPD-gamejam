@@ -11,28 +11,19 @@ namespace Assets.Scripts
         private bool _isInvincible;
         private float _invincibleTimer;
 
-        // <Drunk movement>
-        public float ChangeTime = 0.5f; 
-        private float _timer;                    
-        private int _drunkDirection = 1;
-        private bool _drunkVert;
-        public float DrunkSpeedX;
-        public float DrunkSpeedY;
-        private Vector2 _drunkCenter;
-        public bool CharMoveX;
-        public bool CharMoveY;
-        private float _drunkAcceleration;
-        private float _drunkSpeedClampX;
-        private float _drunkSpeedClampY;
-        public float DrunkPosClamp;
-        // </Drunk movement>
-
         private Animator _animator;
         private Vector2 _lookDirection = new Vector2(1, 0);
 
         private Rigidbody2D _rigidbody2d;
         private float _horizontal;
         private float _vertical;
+
+        // >Drunk movement>
+        public float drunk_time_x = 0f;
+        public float drunk_time_y = 0f;
+        public float drunk_loop_rate = 0.003f;
+        public float drunk_amplitude = 0.005f;
+        // </Drunk movement>
 
         private AudioSource _audioSource;
 
@@ -47,8 +38,6 @@ namespace Assets.Scripts
         {
             _animator = GetComponent<Animator>();
             _rigidbody2d = GetComponent<Rigidbody2D>();
-            _timer = ChangeTime;                     // Drunk movement
-            _drunkCenter = _rigidbody2d.position;    // Drunk movement
             _audioSource = GetComponent<AudioSource>();
             Name = "player";
         }
@@ -100,12 +89,12 @@ namespace Assets.Scripts
                 _lookDirection.Set(move.x, move.y);
                 _lookDirection.Normalize();
 
-                // Drunk movement
-                _drunkCenter = _rigidbody2d.position;
+                DrunkMovingUpdate();
             }
-
-            CharMoveX = !Mathf.Approximately(move.x, 0.0f);
-            CharMoveY = !Mathf.Approximately(move.y, 0.0f);
+            else
+            {   
+                DrunkIdleUpdate();
+            }
 
             _animator.SetFloat("Look X", _lookDirection.x);
             _animator.SetFloat("Look Y", _lookDirection.y);
@@ -116,15 +105,6 @@ namespace Assets.Scripts
                 _invincibleTimer -= Time.deltaTime;
                 if (_invincibleTimer < 0)
                     _isInvincible = false;
-            }
-
-            // Drunk movement
-            _timer -= Time.deltaTime;
-            if (_timer < 0)
-            {
-                _drunkDirection = UnityEngine.Random.value > 0.5 ? - _drunkDirection : _drunkDirection;
-                _drunkVert = UnityEngine.Random.value > 0.5 ? !_drunkVert : _drunkVert;
-                _timer = ChangeTime;
             }
         }
 
@@ -161,45 +141,31 @@ namespace Assets.Scripts
         }
         public void Drunk(ref Vector2 position)
         {
-            _drunkSpeedClampX = CharMoveX ? 1.5f : 0.8f;
-            _drunkSpeedClampY = CharMoveY ? 1.5f : 0.8f;
+            // Calculate displacement
+            
+            float y_add = drunk_amplitude * Mathf.Sin(drunk_time_y*2f*Mathf.PI);
+            float x_add = drunk_amplitude * Mathf.Sin(drunk_time_x*2f*Mathf.PI + 0.5f*Mathf.PI);
 
-            //Debug.Log("char_move_x" + char_move_x);
-            //Debug.Log("char_move_y" + char_move_y);
+            // Add displacement
+            position.y = position.y + y_add;
+            position.x = position.x + x_add;
 
-            if (CharMoveX || CharMoveY)
-            {
-                _drunkAcceleration = 0.2f;
-                DrunkPosClamp = 10f; // Just large enough to not interfere
-            }
-            else
-            {
-                _drunkAcceleration = 0.05f;
-                _drunkSpeedClampX = 0.2f;
-                _drunkSpeedClampY = 0.2f;
-                DrunkPosClamp = 0.2f;
-            }
-        
-            if (_drunkVert)
-            {
-                DrunkSpeedY = DrunkSpeedY + _drunkDirection * _drunkAcceleration;
-                DrunkSpeedY = Mathf.Clamp(DrunkSpeedY, _drunkSpeedClampY*-1, _drunkSpeedClampY);
-            }
-            else
-            {
-                DrunkSpeedX = DrunkSpeedX + _drunkDirection * _drunkAcceleration;
-                DrunkSpeedX = Mathf.Clamp(DrunkSpeedX, -_drunkSpeedClampX, _drunkSpeedClampX);
-            }
+            // Update drunk_time
+            drunk_time_y = drunk_time_y + 2.4f*drunk_loop_rate; 
+            drunk_time_y = drunk_time_y > 1f ? 0 : drunk_time_y;
 
-            //Debug.Log("drunk_speed_x: " + drunk_speed_x);
-            //Debug.Log("drunk_speed_y: " + drunk_speed_y);
-            //Debug.Log("drunk_center" + drunk_center);
-
-            float new_pos_y = position.y + Time.deltaTime * DrunkSpeedY;
-            float new_pos_x = position.x + Time.deltaTime * DrunkSpeedX;
-            position.y = Mathf.Clamp(new_pos_y, _drunkCenter.y-DrunkPosClamp, _drunkCenter.y+DrunkPosClamp);
-            position.x = Mathf.Clamp(new_pos_x, _drunkCenter.x-DrunkPosClamp, _drunkCenter.x+DrunkPosClamp);
-
+            drunk_time_x = drunk_time_x + drunk_loop_rate; 
+            drunk_time_x = drunk_time_x > 1f ? 0 : drunk_time_x;
+        }
+        public void DrunkMovingUpdate()
+        {
+            drunk_amplitude = 0.03f;
+            drunk_loop_rate = 0.005f;
+        }
+        public void DrunkIdleUpdate()
+        {
+            drunk_amplitude = 0.005f;
+            drunk_loop_rate = 0.003f;
         }
     }
 }

@@ -50,9 +50,16 @@ namespace Assets.Scripts
             Instance = this;
             _userDefinedNames = NameHolder.Instance.GetNpcNames();
             _playerName = NameHolder.Instance.GetPlayerName();
-            NameOfDrinkRecipient = _userDefinedNames[0];
-            NameOfPersonToFind = _userDefinedNames[1];
-
+            if (_userDefinedNames.Count == 0)
+            {
+                NameOfDrinkRecipient = _predefinedNames[0];
+                NameOfPersonToFind = _predefinedNames[1];
+            }
+            else
+            {
+                NameOfDrinkRecipient = _userDefinedNames[0];
+                NameOfPersonToFind = _userDefinedNames[1];
+            }
             SetTexts();
         }
 
@@ -100,7 +107,6 @@ namespace Assets.Scripts
 
         public string GetName()
         {
- 
             string toReturn;
             if (_userDefinedNames.Count > 0)
             {
