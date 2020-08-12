@@ -19,12 +19,6 @@ namespace Assets.Scripts
         private AudioSource _audioSource;
         public AudioClip TalkClip;
         public AudioClip GetQuestClip;
-        public AudioClip CompleteQuestClip;
-
-        void Start()
-        {
-            //_audioSource = GetComponentInChildren<AudioSource>();
-        }
 
         public void PlaySound(AudioClip clip)
         {
@@ -36,6 +30,7 @@ namespace Assets.Scripts
 
         public void HandleDialogInit()
         {
+            _audioSource = GetComponent<AudioSource>();
             if (DialogBox == null)
                 return;
             DialogBox.SetActive(false);
@@ -49,23 +44,20 @@ namespace Assets.Scripts
 
         public void HandleObjective()
         {
-            if (HandlesObjective == GameController.Instance.CurrentObjectiveNumber)
+            if (GameController.Instance.CurrentObjectiveNumber-1 == HandlesObjective)
             {
                 DialogBox.SetActive(true);
 
-                _audioSource = GetComponent<AudioSource>();
                 PlaySound(TalkClip);
             }
 
-            else if (GameController.Instance.NextObjectiveNumber == HandlesObjective)
+            else if (GameController.Instance.CurrentObjectiveNumber == HandlesObjective)
             {
-                Debug.Log($"Next objective to be handled: {GameController.Instance.NextObjectiveNumber}. Handles obective: {HandlesObjective}");
                 DialogBox.SetActive(true);
                 GameController.Instance.SetCurrentObjective(HandlesObjective);
 
-                _audioSource = GetComponent<AudioSource>();
                 _audioSource.PlayOneShot(GetQuestClip);
-                PlaySound(TalkClip);
+                _audioSource.PlayOneShot(TalkClip);
 
                 if (GameController.Instance.LastObjectiveNumber == HandlesObjective)
                     GameController.Instance.StartEndTimer = true;

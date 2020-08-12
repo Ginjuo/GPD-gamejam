@@ -125,11 +125,6 @@ namespace Assets.Scripts
 
         //}
 
-        //public void PlaySound(AudioClip clip)
-        //{
-        //    _audioSource.PlayOneShot(clip);
-        //}
-
         public void Drunk(ref Vector2 position)
         {
             _drunkSpeedY = Mathf.Clamp(_drunkSpeedY + _drunkDirection * DrunkAcceleration, -DrunkSpeedClamp, DrunkSpeedClamp);

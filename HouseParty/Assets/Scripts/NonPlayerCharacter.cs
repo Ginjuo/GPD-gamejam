@@ -10,7 +10,6 @@ public class NonPlayerCharacter : ObjectiveLogic
 
     void Start()
     {
-        //_audioSource = GetComponent<AudioSource>();
         NameText.text = Name;
         HandleDialogInit();
     }
