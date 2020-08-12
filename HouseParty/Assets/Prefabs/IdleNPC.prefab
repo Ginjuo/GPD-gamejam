@@ -165,7 +165,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ce5afa1fa1b1e684098419a8455659b0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5113d5d9b5152cb48a02ed3eafb2febd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 924748223525937200}
   - component: {fileID: 6507779274110399212}
   m_Layer: 11
-  m_Name: Jambi
+  m_Name: IdleNPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -357,7 +357,6 @@ MonoBehaviour:
   DialogText: {fileID: 1692317294036806006}
   TalkClip: {fileID: 0}
   GetQuestClip: {fileID: 8300000, guid: b031295ad9c8b4745870820b196c013c, type: 3}
-  CompleteQuestClip: {fileID: 0}
   NameText: {fileID: 3176411244010468506}
 --- !u!82 &6507779274110399212
 AudioSource:
@@ -663,8 +662,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -717,7 +716,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 17.588806, y: 8.794404, z: 0, w: 8.794386}
+  m_margin: {x: 30.26245, y: 17.176249, z: 16.962862, w: 24.840311}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

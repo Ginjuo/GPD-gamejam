@@ -837,8 +837,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Y visited their grandmother the day after the party. The grandmother then
-    caught the COVID-19 and passed away shortly after.
+  m_text: 'Y visited their grandmother the day after the party. Their grandmother
+    then caught the COVID-19 and passed away shortly after.
 
 
     Can you do better?'
