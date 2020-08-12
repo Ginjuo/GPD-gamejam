@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -12,8 +13,10 @@ namespace Assets.Scripts
         public TMP_InputField Name4;
         public TMP_InputField Name5;
 
+        public TMP_InputField PlayerName;
+
         private readonly List<string> _names = new List<string>( );
-        public string PlayerName => "player";
+        private string _playerName;
 
         public static NameHolder Instance { get; private set; }
 
@@ -27,35 +30,51 @@ namespace Assets.Scripts
             Instance = this;
         }
 
-        public void SetNames()
+        public bool SetPlayerName()
         {
-            if (Name1.text != "")
+            if (PlayerName.text != String.Empty)
+            {
+                _playerName = PlayerName.text;
+                return true;
+            }
+
+            return false;
+        }
+
+        public string GetPlayerName()
+        {
+            return _playerName;
+        }
+
+        public void SetNpcNames()
+        {
+            if (Name1.text != String.Empty)
             {
                 _names.Add(Name1.text);
             }
 
-            if (Name2.text != "")
+            if (Name2.text != String.Empty)
             {
                 _names.Add(Name2.text);
             }
 
-            if (Name3.text != "")
+            if (Name3.text != String.Empty)
             {
                 _names.Add(Name3.text);
             }
 
-            if (Name4.text != "")
+            if (Name4.text != String.Empty)
             {
                 _names.Add(Name4.text);
             }
 
-            if (Name5.text != "")
+            if (Name5.text != String.Empty)
             {
                 _names.Add(Name5.text);
             }
         }
 
-        public List<string> GetNames()
+        public List<string> GetNpcNames()
         {
             return _names;
         }
