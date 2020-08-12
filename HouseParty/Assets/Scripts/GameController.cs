@@ -6,39 +6,50 @@ namespace Assets.Scripts
 {
     public class GameController : MonoBehaviour
     {
-        private readonly List<string> _names = new List<string> {"Carl", "Bent", "Heidi", "Bente"};
-
-        private readonly List<string> _predefinedNames = new List<string> {"Random1", "Random2", "Random3", "Random4", "Random5", "Random6", "Random7" };
-        private readonly string _playerName = "player";
-
+        private readonly List<string> _predefinedNames = new List<string> { "Random1", "Random2", "Random3", "Random4", "Random5", "Random6", "Random7" };
+        private List<string> _userDefinedNames = new List<string>();
+        private string _playerName;
         public static GameController Instance { get; private set; }
-
         private static readonly object NameLock = new object();
-
-        public TextMeshProUGUI UiText;
-
+        private float _timer = 2.0f;
         private readonly Dictionary<int,string> _objectiveTextDict = new Dictionary<int, string>();
         private readonly Dictionary<int, string> _npcTextDict = new Dictionary<int, string>();
+        private float _endTimer = 120.0f; //2 min
 
         public string NameOfDrinkRecipient { get; set; }
         public string NameOfPersonToFind { get; set; }
-    
-
-        public int CurrentObjectiveNumber { get; set; } = 0;
-
+        public TextMeshProUGUI UiText;
+        public int CurrentObjectiveNumber { get; set; }
         public int NextObjectiveNumber { get; set; } = 1;
-
         public int LastObjectiveNumber => 5;
-
         public bool StartEndTimer { get; set; } = false;
-        private float _timer = 2.0f;
+
+        void Start()
+        {
+           
+        }
+
+        void Update()
+        {
+            _endTimer -= Time.deltaTime;
+
+            if (StartEndTimer)
+                _timer -= Time.deltaTime;
+
+
+            if (_timer < 0 || _endTimer < 0)
+                Loader.Load(Loader.Scene.EndscreenTimer);
+
+        }
+
 
         void Awake()
         {
-            DontDestroyOnLoad(this);
             Instance = this;
-            NameOfDrinkRecipient = _names[0];
-            NameOfPersonToFind =_names[1];
+            _userDefinedNames = NameHolder.Instance.GetNames();
+            _playerName = NameHolder.Instance.PlayerName;
+            NameOfDrinkRecipient = _userDefinedNames[0];
+            NameOfPersonToFind = _userDefinedNames[1];
 
             SetTexts();
         }
@@ -85,28 +96,14 @@ namespace Assets.Scripts
             NextObjectiveNumber = objectiveNumber + 1;
         }
 
-        void Update()
-        {
-            if (StartEndTimer)
-            {
-                _timer -= Time.deltaTime;
-
-                if (_timer < 0)
-                {
-                    Loader.Load(Loader.Scene.EndscreenTimer);
-                }
-            }
-
-        }
-
         public string GetName()
         {
  
             string toReturn;
-            if (_names.Count > 0)
+            if (_userDefinedNames.Count > 0)
             {
-                toReturn = _names[0];
-                _names.RemoveAt(0);
+                toReturn = _userDefinedNames[0];
+                _userDefinedNames.RemoveAt(0);
                 return toReturn;
             }
             toReturn = _predefinedNames[0];

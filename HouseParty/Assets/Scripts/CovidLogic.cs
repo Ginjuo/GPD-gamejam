@@ -20,6 +20,10 @@ namespace Assets.Scripts
             {
                 HasCovid = true;
                 Debug.Log($"{Name} got COVID from: " + covidLogic.Name);
+                if(NameHolder.Instance.GetNames().Contains(Name))
+                    NameHolder.Instance.InfectedNames.Add(Name);
+
+                NameHolder.Instance.NumberOfInfected++;
             }
         }
     }
