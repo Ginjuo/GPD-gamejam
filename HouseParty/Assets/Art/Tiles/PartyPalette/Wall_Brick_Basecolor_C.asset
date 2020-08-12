@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wall_Brick_Basecolor_C
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: 21300000, guid: 52b99d64baa59234e83d32cd8818704e, type: 3}
-  m_Color: {r: 0.3679245, g: 0.21433273, b: 0.20617655, a: 1}
+  m_Color: {r: 0.4716981, g: 0.3167736, b: 0.30882874, a: 1}
   m_Transform:
     e00: 1
     e01: 0
