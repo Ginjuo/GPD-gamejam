@@ -13,10 +13,10 @@ namespace Assets.Scripts
         public string Name;
         public void GetCovid(CovidLogic covidLogic)
         {
-            if (HasCovid || CanGetCovid)
+            if (HasCovid || !CanGetCovid)
                 return;
 
-            if (covidLogic.HasCovid && Random.Range(0, 100) <= ContractionChance)
+            if (covidLogic.HasCovid && Random.Range(1, 101) <= ContractionChance)
             {
                 HasCovid = true;
                 Debug.Log($"{Name} got COVID from: " + covidLogic.Name);
