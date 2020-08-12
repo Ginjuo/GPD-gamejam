@@ -68,10 +68,10 @@ namespace Assets.Scripts
                 _names.Add(Name4.text);
             }
 
-            if (Name5.text != String.Empty)
-            {
-                _names.Add(Name5.text);
-            }
+            // if (Name5.text != String.Empty)
+            // {
+            //     _names.Add(Name5.text);
+            // }
         }
 
         public List<string> GetNpcNames()
