@@ -12,8 +12,7 @@ namespace Assets.Scripts
             RubyController rc = collider.gameObject.GetComponent<RubyController>();
             if (rc == null)
                 return;
-            Debug.Log("Car end screen");
-            Loader.Load(Loader.Scene.StdEndScreen);
+            Loader.Load(Loader.Scene.CarEndScreen);
         }
     }
 }

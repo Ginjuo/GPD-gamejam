@@ -918,7 +918,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: Name
-      value: Welcoming dude
+      value: Host
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: TalkClip
