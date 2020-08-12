@@ -48,8 +48,8 @@ namespace Assets.Scripts
         void Awake()
         {
             Instance = this;
-            _userDefinedNames = NameHolder.Instance.GetNames();
-            _playerName = NameHolder.Instance.PlayerName;
+            _userDefinedNames = NameHolder.Instance.GetNpcNames();
+            _playerName = NameHolder.Instance.GetPlayerName();
             NameOfDrinkRecipient = _userDefinedNames[0];
             NameOfPersonToFind = _userDefinedNames[1];
 
