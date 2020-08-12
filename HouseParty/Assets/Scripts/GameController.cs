@@ -45,7 +45,6 @@ namespace Assets.Scripts
 
         }
 
-
         void Awake()
         {
             Instance = this;
@@ -54,7 +53,9 @@ namespace Assets.Scripts
             if (_userDefinedNames.Count == 0)
             {
                 NameOfDrinkRecipient = _predefinedNames[0];
-                NameOfPersonToFind = _predefinedNames[1];
+                _predefinedNames.RemoveAt(0);
+                NameOfPersonToFind = _predefinedNames[0];
+                _predefinedNames.RemoveAt(0);
             }
             else if (_userDefinedNames.Count == 1)
             {
@@ -67,7 +68,7 @@ namespace Assets.Scripts
             {
                 NameOfDrinkRecipient = _userDefinedNames[0];
                 _userDefinedNames.RemoveAt(0);
-                NameOfPersonToFind = _userDefinedNames[1];
+                NameOfPersonToFind = _userDefinedNames[0];
                 _userDefinedNames.RemoveAt(0);
             }
             SetTexts();
@@ -117,6 +118,7 @@ namespace Assets.Scripts
 
         public string GetName(int objectiveId)
         {
+
             if (objectiveId == 3)
                 return NameOfDrinkRecipient;
             if (objectiveId == 4)
