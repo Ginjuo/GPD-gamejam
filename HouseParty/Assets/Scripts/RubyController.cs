@@ -49,7 +49,9 @@ namespace Assets.Scripts
 
         public void PlaySound(AudioClip clip)
         {
-            _audioSource.PlayOneShot(clip);
+            
+            //_audioSource.PlayOneShot(clip);
+            return;
         }
 
         void Launch()
