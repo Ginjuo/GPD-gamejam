@@ -25,10 +25,10 @@ namespace Assets.Scripts
         public float drunk_amplitude = 0.005f;
         // </Drunk movement>
 
+        // Audio stuff
         private AudioSource _audioSource;
+        public AudioClip LoadClip;
 
-        public AudioClip LaunchedClip;
-        public AudioClip HitClip;
         // Start is called before the first frame update
 
         //Corona
@@ -40,6 +40,8 @@ namespace Assets.Scripts
             _rigidbody2d = GetComponent<Rigidbody2D>();
             _audioSource = GetComponent<AudioSource>();
             Name = "player";
+
+            PlaySound(LoadClip);
         }
 
         public void PlaySound(AudioClip clip)
@@ -54,7 +56,7 @@ namespace Assets.Scripts
             //Projectile projectile = projectileObject.GetComponent<Projectile>();
             //projectile.Launch(_lookDirection, ProjectileForce);
 
-            PlaySound(LaunchedClip);
+            PlaySound(LoadClip);
             _animator.SetTrigger("Launch");
         }
 
