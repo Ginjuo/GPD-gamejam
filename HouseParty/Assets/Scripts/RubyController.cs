@@ -59,7 +59,6 @@ namespace Assets.Scripts
             //Projectile projectile = projectileObject.GetComponent<Projectile>();
             //projectile.Launch(_lookDirection, ProjectileForce);
 
-            PlaySound(LoadClip);
             _animator.SetTrigger("Launch");
         }
 

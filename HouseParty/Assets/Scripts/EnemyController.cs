@@ -31,6 +31,10 @@ namespace Assets.Scripts
         private bool _isInvincible;
         private float _invincibleTimer;
 
+        // Audio stuff
+        //private AudioSource _audioSource;
+        //public AudioClip TalkAudioClip;
+
         void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -40,6 +44,8 @@ namespace Assets.Scripts
             _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
             NameText.text = GameController.Instance.GetName(HandlesObjective);
             Name = NameText.text;
+
+            //_audioSource = GetComponent<AudioSource>();
 
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
             HandleDialogInit();
@@ -89,6 +95,8 @@ namespace Assets.Scripts
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
+            //PlaySound(TalkAudioClip);
+
             if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
                 HandleObjective();
 
@@ -115,6 +123,11 @@ namespace Assets.Scripts
 
         //    GetCOVID(collider);
 
+        //}
+
+        //public void PlaySound(AudioClip clip)
+        //{
+        //    _audioSource.PlayOneShot(clip);
         //}
 
         public void Drunk(ref Vector2 position)
