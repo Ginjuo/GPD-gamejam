@@ -410,7 +410,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -51.8}
-  m_SizeDelta: {x: 416.59943, y: 103.52954}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &786672531
 MonoBehaviour:
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Game over!
+  m_text: The game has ended
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -788,7 +788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa3f5119809491f47acc8a11a353d294, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EndGameText: {fileID: 0}
+  InfectedText: {fileID: 0}
+  StoryText: {fileID: 0}
 --- !u!4 &1292872825
 Transform:
   m_ObjectHideFlags: 0
