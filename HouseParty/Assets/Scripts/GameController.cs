@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -14,11 +15,12 @@ namespace Assets.Scripts
         private float _timer = 2.0f;
         private readonly Dictionary<int,string> _objectiveTextDict = new Dictionary<int, string>();
         private readonly Dictionary<int, string> _npcTextDict = new Dictionary<int, string>();
-        private float _endTimer = 120.0f; //2 min
+        private double _endTimer = 120.0d; //2 min
 
         public string NameOfDrinkRecipient { get; set; }
         public string NameOfPersonToFind { get; set; }
         public TextMeshProUGUI UiText;
+        public TextMeshProUGUI TimerText;
         public int CurrentObjectiveNumber { get; set; }
         public int NextObjectiveNumber { get; set; } = 1;
         public int LastObjectiveNumber => 5;
@@ -31,11 +33,11 @@ namespace Assets.Scripts
 
         void Update()
         {
+            TimerText.text = $"TIME LEFT: {_endTimer:n0}";
             _endTimer -= Time.deltaTime;
 
             if (StartEndTimer)
                 _timer -= Time.deltaTime;
-
 
             if (_timer < 0 || _endTimer < 0)
                 Loader.Load(Loader.Scene.EndscreenTimer);
