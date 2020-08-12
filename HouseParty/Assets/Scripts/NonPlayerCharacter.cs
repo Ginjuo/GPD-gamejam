@@ -19,13 +19,13 @@ public class NonPlayerCharacter : ObjectiveLogic
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (ShowsDialog)
+        if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
             HandleObjective();
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (!ShowsDialog)
+        if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
             return;
         DialogBox.SetActive(false);
     }

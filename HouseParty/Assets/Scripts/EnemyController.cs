@@ -7,7 +7,6 @@ namespace Assets.Scripts
     {
         //Random
         public float ChangeTime = 0;
-        //public string Name;
         private Rigidbody2D _rigidbody2D;
         private float _timer;
         private bool _broken = true;
@@ -39,7 +38,7 @@ namespace Assets.Scripts
             _animator = GetComponent<Animator>();
             _drunkCenter = _rigidbody2D.position;
             _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
-            NameText.text = GameController.Instance.GetName();
+            NameText.text = GameController.Instance.GetName(HandlesObjective);
             Name = NameText.text;
 
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
@@ -90,7 +89,7 @@ namespace Assets.Scripts
 
         private void OnTriggerEnter2D(Collider2D collider)
         {
-            if (ShowsDialog)
+            if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
                 HandleObjective();
 
             CovidLogic cl = collider.gameObject.GetComponent<CovidLogic>();
@@ -101,7 +100,7 @@ namespace Assets.Scripts
 
         private void OnTriggerExit2D(Collider2D collider)
         {
-            if (!ShowsDialog)
+            if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
                 return;
             DialogBox.SetActive(false);
         }
