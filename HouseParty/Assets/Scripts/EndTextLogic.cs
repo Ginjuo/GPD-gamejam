@@ -20,10 +20,8 @@ namespace Assets.Scripts
 
             List<string> intersection = NameHolder.Instance.InfectedNames.Where(inf => NameHolder.Instance.GetNpcNames().Contains(inf)).ToList();
 
-            string t1 = intersection.Count > 0 ? intersection[UnityEngine.Random.Range(0, intersection.Count)] : "";
-            string t2 = NameHolder.Instance.InfectedNames.Count > 0 ? NameHolder.Instance.InfectedNames[UnityEngine.Random.Range(0, NameHolder.Instance.InfectedNames.Count)] : "";
-            personWithStory = t1 != "" ? t1 : t2 != "" ? t2 : "ERROR";
-            StoryText.text = $"{personWithStory} visited their grandmother the day after the party. {Environment.NewLine} The grandmother then caught the COVID-19 and passed away shortly after. {Environment.NewLine} {Environment.NewLine}  Can you do better ? ";
+            personWithStory = intersection.Count > 0 ? intersection[UnityEngine.Random.Range(0, intersection.Count)] : NameHolder.Instance.InfectedNames.Count > 0 ? NameHolder.Instance.InfectedNames[UnityEngine.Random.Range(0, NameHolder.Instance.InfectedNames.Count)] : "Someone from the party ";
+            StoryText.text = $"{personWithStory} visited their grandmother the day after the party. {Environment.NewLine} The grandmother then caught the COVID-19 and passed away shortly after. {Environment.NewLine} {Environment.NewLine} Can you do better ? ";
         }
 
         // Update is called once per frame

@@ -7,7 +7,7 @@ public static class Loader
 {
     public enum Scene
     {
-        EndscreenCar,
+        CarEndScreen,
         StdEndScreen,
         TrueScene,
         Startscreen
