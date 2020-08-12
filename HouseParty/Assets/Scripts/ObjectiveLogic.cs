@@ -15,6 +15,20 @@ namespace Assets.Scripts
         public bool ShowsDialog;
         public TextMeshProUGUI DialogText;
 
+        // Audio stuff
+        private AudioSource _audioSource;
+        public AudioClip TalkClip;
+
+        void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        public void PlaySound(AudioClip clip)
+        {
+            _audioSource.PlayOneShot(clip);
+        }
+
         public void HandleDialogInit()
         {
             if (DialogBox == null)
@@ -40,6 +54,12 @@ namespace Assets.Scripts
 
                 if (GameController.Instance.LastObjectiveNumber == HandlesObjective)
                     GameController.Instance.StartEndTimer = true;
+            }
+
+            if (HandlesObjective != -1)
+            {
+                Debug.Log("NPC with number: " + HandlesObjective + ", playing TalkClip");
+                //PlaySound(TalkClip);
             }
         }
     }
