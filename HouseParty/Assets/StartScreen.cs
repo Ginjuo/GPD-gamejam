@@ -14,7 +14,7 @@ public class StartScreen : MonoBehaviour
 
         if (NameHolder.Instance.SetPlayerName())
         {
-            Loader.Load(Loader.Scene.MainScene);
+            Loader.Load(Loader.Scene.TrueScene);
         }
     }
 }

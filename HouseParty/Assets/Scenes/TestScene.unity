@@ -371,6 +371,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474756767174408207, guid: 7c97dd77437092745b53a216a539b246, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4250809709216929898, guid: 7c97dd77437092745b53a216a539b246, type: 3}
       propertyPath: m_Name
       value: Car
@@ -444,6 +448,10 @@ PrefabInstance:
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: 3c8e913e3a6814e4891928b6082dfcdb, type: 3}
+    - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: Name
+      value: DJ Glatnakke
+      objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.6467873
@@ -1783,6 +1791,10 @@ PrefabInstance:
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: ab88ba1e5f0a95b49ad07d73c5e96543, type: 3}
+    - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: Name
+      value: Intro dude
+      objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.56480515
@@ -10672,6 +10684,10 @@ PrefabInstance:
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: e534482e11b350e40b6002f1ee0a6959, type: 3}
+    - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: Name
+      value: Bartender
+      objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 13.06
@@ -10719,6 +10735,22 @@ PrefabInstance:
     - target: {fileID: 924748223525937205, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_Name
       value: Jambi
+      objectReference: {fileID: 0}
+    - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.62225163
+      objectReference: {fileID: 0}
+    - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: m_Size.x
+      value: 0.3973515
+      objectReference: {fileID: 0}
+    - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.17436731
+      objectReference: {fileID: 0}
+    - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: m_Size.y
+      value: 1.4043033
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}

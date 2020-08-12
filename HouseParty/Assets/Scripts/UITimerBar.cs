@@ -15,14 +15,8 @@ namespace Assets.Scripts
             _timerBar.value = (int)GameController.Instance.EndTimer;
         }
 
-        //void Update()
-        //{
-        //    _timerBar.value = _currentValue;
-        //}
-
         public void SetTimerPercent(double value)
         {
-            Debug.Log("Timer value: " + value);
             _timerBar.value = (int)value;
         }
     }

@@ -13,7 +13,7 @@ namespace Assets.Scripts
         private string _playerName;
         public static GameController Instance { get; private set; }
         private static readonly object NameLock = new object();
-        private float _timer = 2.0f;
+        private float _timer = 15.0f; // 15s
         private readonly Dictionary<int,string> _objectiveTextDict = new Dictionary<int, string>();
         private readonly Dictionary<int, string> _npcTextDict = new Dictionary<int, string>();
         public double EndTimer = 120.0d; //2 min
@@ -23,7 +23,6 @@ namespace Assets.Scripts
         public string NameOfDrinkRecipient { get; set; }
         public string NameOfPersonToFind { get; set; }
         public TextMeshProUGUI UiText;
-        public TextMeshProUGUI TimerText;
         public int CurrentObjectiveNumber { get; set; }
         public int NextObjectiveNumber { get; set; } = 1;
         public int LastObjectiveNumber => 5;
