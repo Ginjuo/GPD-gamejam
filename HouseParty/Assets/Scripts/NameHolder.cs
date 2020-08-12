@@ -6,11 +6,11 @@ namespace Assets.Scripts
 {
     public class NameHolder : MonoBehaviour
     {
-        public TextMeshProUGUI Name1;
-        public TextMeshProUGUI Name2;
-        public TextMeshProUGUI Name3;
-        public TextMeshProUGUI Name4;
-        public TextMeshProUGUI Name5;
+        public TMP_InputField Name1;
+        public TMP_InputField Name2;
+        public TMP_InputField Name3;
+        public TMP_InputField Name4;
+        public TMP_InputField Name5;
 
         private readonly List<string> _names = new List<string>( );
         public string PlayerName => "player";
@@ -27,13 +27,50 @@ namespace Assets.Scripts
             Instance = this;
         }
 
+        public void SetNames()
+        {
+            if (Name1.text != "")
+            {
+                _names.Add(Name1.text);
+            }
+
+            if (Name2.text != "")
+            {
+                _names.Add(Name2.text);
+            }
+
+            if (Name3.text != "")
+            {
+                _names.Add(Name3.text);
+            }
+
+            if (Name4.text != "")
+            {
+                _names.Add(Name4.text);
+            }
+
+            if (Name5.text != "")
+            {
+                _names.Add(Name5.text);
+            }
+        }
+
         public List<string> GetNames()
         {
-            _names.Add("Carl");
-            _names.Add("Bent");
-            _names.Add("Heidi");
-            _names.Add("Bente");
             return _names;
+        }
+
+        public void PrintNamesToLog()
+        {
+            if (_names.Count == 0)
+            {
+                Debug.Log("There were no names to print");
+            }
+            
+            foreach (string name in _names)
+            {
+                Debug.Log(name);
+            }
         }
 
     }
