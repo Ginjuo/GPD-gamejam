@@ -19,8 +19,10 @@ namespace Assets.Scripts
             string personWithStory;
 
             List<string> intersection = NameHolder.Instance.InfectedNames.Where(inf => NameHolder.Instance.GetNpcNames().Contains(inf)).ToList();
-            Debug.Log(UnityEngine.Random.Range(0, intersection.Count - 1));
-            personWithStory = intersection[UnityEngine.Random.Range(0, intersection.Count-1)] ?? NameHolder.Instance.InfectedNames[UnityEngine.Random.Range(0, NameHolder.Instance.InfectedNames.Count-1)] ?? "TEST";
+
+            string t1 = intersection.Count > 0 ? intersection[UnityEngine.Random.Range(0, intersection.Count)] : "";
+            string t2 = NameHolder.Instance.InfectedNames.Count > 0 ? NameHolder.Instance.InfectedNames[UnityEngine.Random.Range(0, NameHolder.Instance.InfectedNames.Count)] : "";
+            personWithStory = t1 != "" ? t1 : t2 != "" ? t2 : "ERROR";
             StoryText.text = $"{personWithStory} visited their grandmother the day after the party. {Environment.NewLine} The grandmother then caught the COVID-19 and passed away shortly after. {Environment.NewLine} {Environment.NewLine}  Can you do better ? ";
         }
 
