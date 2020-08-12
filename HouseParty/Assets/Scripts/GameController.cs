@@ -8,6 +8,7 @@ namespace Assets.Scripts
     public class GameController : MonoBehaviour
     {
         private readonly List<string> _predefinedNames = new List<string> { "Random1", "Random2", "Random3", "Random4", "Random5", "Random6", "Random7" };
+        private readonly List<string> _reservedNames = new List<string>();
         private List<string> _userDefinedNames = new List<string>();
         private string _playerName;
         public static GameController Instance { get; private set; }
@@ -55,10 +56,19 @@ namespace Assets.Scripts
                 NameOfDrinkRecipient = _predefinedNames[0];
                 NameOfPersonToFind = _predefinedNames[1];
             }
+            else if (_userDefinedNames.Count == 1)
+            {
+                NameOfDrinkRecipient = _userDefinedNames[0];
+                _userDefinedNames.RemoveAt(0);
+                NameOfPersonToFind = _predefinedNames[0];
+                _predefinedNames.RemoveAt(0);
+            }
             else
             {
                 NameOfDrinkRecipient = _userDefinedNames[0];
+                _userDefinedNames.RemoveAt(0);
                 NameOfPersonToFind = _userDefinedNames[1];
+                _userDefinedNames.RemoveAt(0);
             }
             SetTexts();
         }
@@ -105,8 +115,13 @@ namespace Assets.Scripts
             NextObjectiveNumber = objectiveNumber + 1;
         }
 
-        public string GetName()
+        public string GetName(int objectiveId)
         {
+            if (objectiveId == 3)
+                return NameOfDrinkRecipient;
+            if (objectiveId == 4)
+                return NameOfPersonToFind;
+
             string toReturn;
             if (_userDefinedNames.Count > 0)
             {
@@ -118,7 +133,5 @@ namespace Assets.Scripts
             _predefinedNames.RemoveAt(0);
             return toReturn;
         }
-        
     }
-
 }
