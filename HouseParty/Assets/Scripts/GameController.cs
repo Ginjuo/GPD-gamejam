@@ -13,48 +13,46 @@ namespace Assets.Scripts
         private string _playerName;
         public static GameController Instance { get; private set; }
         private static readonly object NameLock = new object();
-        private float _timer = 2.0f;
+        private float _timer = 15.0f; // 15s
         private readonly Dictionary<int,string> _objectiveTextDict = new Dictionary<int, string>();
         private readonly Dictionary<int, string> _npcTextDict = new Dictionary<int, string>();
-        private double _endTimer = 120.0d; //2 min
+        public double EndTimer = 120.0d; //2 min
+
+        private UITimerBar _uiTimerBar;
 
         public string NameOfDrinkRecipient { get; set; }
         public string NameOfPersonToFind { get; set; }
         public TextMeshProUGUI UiText;
-        public TextMeshProUGUI TimerText;
         public int CurrentObjectiveNumber { get; set; }
         public int NextObjectiveNumber { get; set; } = 1;
         public int LastObjectiveNumber => 5;
         public bool StartEndTimer { get; set; } = false;
 
-        void Start()
-        {
-           
-        }
-
         void Update()
         {
-            TimerText.text = $"TIME LEFT: {_endTimer:n0}";
-            _endTimer -= Time.deltaTime;
+            EndTimer -= Time.deltaTime;
+            _uiTimerBar.SetTimerPercent(EndTimer);
 
             if (StartEndTimer)
                 _timer -= Time.deltaTime;
 
-            if (_timer < 0 || _endTimer < 0)
+            if (_timer < 0 || EndTimer < 0)
                 Loader.Load(Loader.Scene.EndscreenTimer);
 
         }
 
-
         void Awake()
         {
             Instance = this;
+            _uiTimerBar = GameObject.Find("TimerBar").GetComponent<UITimerBar>();
             _userDefinedNames = NameHolder.Instance.GetNpcNames();
             _playerName = NameHolder.Instance.GetPlayerName();
             if (_userDefinedNames.Count == 0)
             {
                 NameOfDrinkRecipient = _predefinedNames[0];
-                NameOfPersonToFind = _predefinedNames[1];
+                _predefinedNames.RemoveAt(0);
+                NameOfPersonToFind = _predefinedNames[0];
+                _predefinedNames.RemoveAt(0);
             }
             else if (_userDefinedNames.Count == 1)
             {
@@ -67,7 +65,7 @@ namespace Assets.Scripts
             {
                 NameOfDrinkRecipient = _userDefinedNames[0];
                 _userDefinedNames.RemoveAt(0);
-                NameOfPersonToFind = _userDefinedNames[1];
+                NameOfPersonToFind = _userDefinedNames[0];
                 _userDefinedNames.RemoveAt(0);
             }
             SetTexts();
@@ -118,6 +116,7 @@ namespace Assets.Scripts
 
         public string GetName(int objectiveId)
         {
+
             if (objectiveId == 3)
                 return NameOfDrinkRecipient;
             if (objectiveId == 4)

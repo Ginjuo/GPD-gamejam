@@ -9,7 +9,7 @@ public static class Loader
     {
         EndscreenCar,
         EndscreenTimer,
-        MainScene,
+        TrueScene,
         Startscreen
     }
 

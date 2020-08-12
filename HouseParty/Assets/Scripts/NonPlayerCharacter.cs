@@ -6,15 +6,12 @@ using UnityEngine;
 
 public class NonPlayerCharacter : ObjectiveLogic
 {
-    // Audio stuff
-    //private AudioSource _audioSource;
-    //public AudioClip TalkAudioClip;
+    public TextMeshProUGUI NameText;
 
-    // Start is called before the first frame update
     void Start()
     {
         //_audioSource = GetComponent<AudioSource>();
-
+        NameText.text = Name;
         HandleDialogInit();
     }
 

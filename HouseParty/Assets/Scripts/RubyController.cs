@@ -45,16 +45,6 @@ namespace Assets.Scripts
             Name = "player";
 
             PlaySound(LoadClip);
-
-            // World boundaries
-            float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
-            Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0,0, camDistance));
-            Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1,1, camDistance));
-            
-            minX = bottomCorner.x;
-            maxX = topCorner.x;
-            minY = bottomCorner.y;
-            maxY = topCorner.y;
         }
 
         public void PlaySound(AudioClip clip)
@@ -121,17 +111,21 @@ namespace Assets.Scripts
                     _isInvincible = false;
             }
 
-            // <World boundaries>
+            // World boundaries
+            float camDistance = Vector3.Distance(transform.position, Camera.main.transform.position);
+            Vector2 bottomCorner = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, camDistance));
+            Vector2 topCorner = Camera.main.ViewportToWorldPoint(new Vector3(1, 1, camDistance));
+
             // Get current position
             Vector3 pos = transform.position;
     
             // Horizontal contraint
-            if(pos.x < minX) pos.x = minX;
-            if(pos.x > maxX) pos.x = maxX;
+            if(pos.x < bottomCorner.x) pos.x = bottomCorner.x;
+            if(pos.x > topCorner.x) pos.x = topCorner.x;
     
             // vertical contraint
-            if(pos.y < minY) pos.y = minY;
-            if(pos.y > maxY) pos.y = maxY;
+            if(pos.y < bottomCorner.y) pos.y = bottomCorner.y;
+            if(pos.y > topCorner.y) pos.y = topCorner.y;
     
             // Update position
             transform.position = pos;
