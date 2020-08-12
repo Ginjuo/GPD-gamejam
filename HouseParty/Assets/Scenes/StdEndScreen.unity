@@ -314,11 +314,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Before the party you had unknowingly contracted the COVID-19 virus.
+  m_text: 'It turned out you had contracted the COVID-19 virus before you even went
+    to the party.
 
 
-    During
-    the party you came too close to the other guests and infected X others.'
+    During the party you came too close to the other guests and
+    infected X others.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

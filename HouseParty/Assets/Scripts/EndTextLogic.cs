@@ -14,7 +14,7 @@ namespace Assets.Scripts
         // Start is called before the first frame update
         void Start()
         {
-            InfectedText.text = $"Before the party you had unknowingly contracted the COVID-19 virus. {Environment.NewLine} {Environment.NewLine} During the party you came too close to the other guests and infected {NameHolder.Instance.NumberOfInfected} others.";
+            InfectedText.text = $"It turned out you had contracted the COVID-19 virus before you even went to the party. {Environment.NewLine} {Environment.NewLine} During the party you came too close to the other guests and infected {NameHolder.Instance.NumberOfInfected} others.";
 
             string personWithStory;
 

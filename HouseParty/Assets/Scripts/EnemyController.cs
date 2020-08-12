@@ -41,6 +41,23 @@ namespace Assets.Scripts
 
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
             HandleDialogInit();
+
+            // Animation offset
+             Animator anim = GetComponent<Animator>();
+            float randomIdleStart = Random.Range(0,anim.GetCurrentAnimatorStateInfo(0).length); //Set a random part of the animation to start from
+
+            bool girlVar  = (Random.value > 0.5f);
+            if (girlVar == true)
+            {
+                anim.Play("BenedicteDance", 0, randomIdleStart);
+            }
+            else 
+            {
+                anim.Play("EllenDance", 0, randomIdleStart);
+            }
+
+            Debug.Log(girlVar);
+
         }
 
         void Update()

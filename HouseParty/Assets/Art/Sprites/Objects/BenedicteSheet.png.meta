@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 508025d1088b2be44b0f5afe08042c2a
+guid: 450e4c1b2985ab54fad69c1e84e6e4a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7439521578638329150
-    second: GSheet_0
+      213: -5216604768987208708
+    second: BenedicteSheet_0
   - first:
-      213: 3019591246248924881
-    second: GSheet_1
+      213: -8737653894075070360
+    second: BenedicteSheet_1
   - first:
-      213: -8867748268360412399
-    second: GSheet_2
+      213: -2519054627014934809
+    second: BenedicteSheet_2
   - first:
-      213: 4131227219055280929
-    second: GSheet_3
+      213: 6558453760126994230
+    second: BenedicteSheet_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GSheet_0
+      name: BenedicteSheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 256
-        height: 496
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,20 +127,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e354791a57d7e3760800000000000000
-      internalID: 7439521578638329150
+      spriteID: cf3a8e2f995ea97b0800000000000000
+      internalID: -5216604768987208708
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GSheet_1
+      name: BenedicteSheet_1
       rect:
         serializedVersion: 2
         x: 256
         y: 0
         width: 256
-        height: 496
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -148,20 +148,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d6db8f6d3eb7e920800000000000000
-      internalID: 3019591246248924881
+      spriteID: 868c851d31e9db680800000000000000
+      internalID: -8737653894075070360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GSheet_2
+      name: BenedicteSheet_2
       rect:
         serializedVersion: 2
         x: 512
         y: 0
         width: 256
-        height: 496
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 113dacaeeed6fe480800000000000000
-      internalID: -8867748268360412399
+      spriteID: 7ee78fac9258a0dd0800000000000000
+      internalID: -2519054627014934809
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: GSheet_3
+      name: BenedicteSheet_3
       rect:
         serializedVersion: 2
         x: 768
         y: 0
         width: 256
-        height: 496
+        height: 533
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 123073e7441155930800000000000000
-      internalID: 4131227219055280929
+      spriteID: 637c13852fe440b50800000000000000
+      internalID: 6558453760126994230
       vertices: []
       indices: 
       edges: []
