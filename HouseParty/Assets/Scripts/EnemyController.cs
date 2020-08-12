@@ -68,6 +68,8 @@ namespace Assets.Scripts
                 if (_invincibleTimer < 0)
                     _isInvincible = false;
             }
+
+            HandleDialogTimerLogic();
         }
 
         void FixedUpdate()
@@ -108,9 +110,9 @@ namespace Assets.Scripts
 
         private void OnTriggerExit2D(Collider2D collider)
         {
-            if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
-                return;
-            DialogBox.SetActive(false);
+            //if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
+            //    return;
+            //DialogBox.SetActive(false);
         }
 
         //void OnTriggerStay2D(Collider2D collider)
