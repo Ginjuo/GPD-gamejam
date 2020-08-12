@@ -8,7 +8,7 @@ public static class Loader
     public enum Scene
     {
         EndscreenCar,
-        EndscreenTimer,
+        StdEndScreen,
         TrueScene,
         Startscreen
     }

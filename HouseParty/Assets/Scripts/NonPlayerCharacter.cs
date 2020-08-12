@@ -15,8 +15,8 @@ public class NonPlayerCharacter : ObjectiveLogic
     }
 
     void Update()
-    { 
-       
+    {
+        HandleDialogTimerLogic();
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -27,8 +27,8 @@ public class NonPlayerCharacter : ObjectiveLogic
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
-            return;
-        DialogBox.SetActive(false);
+        //if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
+        //    return;
+        //DialogBox.SetActive(false);
     }
 }

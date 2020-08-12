@@ -25,15 +25,9 @@ namespace Assets.Scripts
         // </Drunk movement>
 
         //Corona
-        //public int ContractionChance;
-        //public bool HasCovid;
         public float TimeInvincible = 2.0f;
         private bool _isInvincible;
         private float _invincibleTimer;
-
-        // Audio stuff
-        //private AudioSource _audioSource;
-        //public AudioClip TalkAudioClip;
 
         void Start()
         {
@@ -44,8 +38,6 @@ namespace Assets.Scripts
             _drunkDirection = Random.value > 0.5 ? -_drunkDirection : _drunkDirection;
             NameText.text = GameController.Instance.GetName(HandlesObjective);
             Name = NameText.text;
-
-            //_audioSource = GetComponent<AudioSource>();
 
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
             HandleDialogInit();
@@ -68,6 +60,8 @@ namespace Assets.Scripts
                 if (_invincibleTimer < 0)
                     _isInvincible = false;
             }
+
+            HandleDialogTimerLogic();
         }
 
         void FixedUpdate()
@@ -108,9 +102,9 @@ namespace Assets.Scripts
 
         private void OnTriggerExit2D(Collider2D collider)
         {
-            if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
-                return;
-            DialogBox.SetActive(false);
+            //if (!ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
+            //    return;
+            //DialogBox.SetActive(false);
         }
 
         //void OnTriggerStay2D(Collider2D collider)
