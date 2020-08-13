@@ -2437,12 +2437,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Halleluja! The lockdown is easing up and you are finally allowed to go
-    to parties with your highschool friends again!\n\nYour mother drives you to the
-    party and says: \"You are only allowed to stay here for an hour. Are you sure
-    you dont want to hang out at home instead?\". \nYou:\" No! I want to go meet
-    all of my friends!\"\n\nYou have been to a pre-party and is a bit drunk, so you
-    might stumble into a person or two...\n\nUse <WASD> to move!"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2911,7 +2906,7 @@ MonoBehaviour:
   Name2: {fileID: 1485998170}
   Name3: {fileID: 163774946}
   Name4: {fileID: 867960558}
-  Name5: {fileID: 0}
+  StoryText: {fileID: 892306351}
   PlayerName: {fileID: 615228586}
 --- !u!4 &1209498195
 Transform:
