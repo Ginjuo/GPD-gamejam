@@ -1706,11 +1706,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937204, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.5688889
+      value: 0.59534883
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937204, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9955556
+      value: 1.0418605
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937204, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_Offset.x
@@ -1750,11 +1750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.5688889
+      value: 0.59534883
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937215, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.9955556
+      value: 1.0418605
       objectReference: {fileID: 0}
     - target: {fileID: 1692317294036806006, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_fontSize
@@ -1774,11 +1774,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6479410073047956406, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -1.323
+      value: -1.35
       objectReference: {fileID: 0}
     - target: {fileID: 6479410073047956406, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6479410073047956406, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -1790,7 +1790,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6811404938889507228, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -0.071
+      value: 0.04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
