@@ -25,6 +25,7 @@ namespace Assets.Scripts
 
             // Emptying N infected
             NameHolder.Instance.NumberOfInfected = 0;
+            NameHolder.Instance.InfectedNames = new List<string>();
         }
 
         // Update is called once per frame
