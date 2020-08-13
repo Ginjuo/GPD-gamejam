@@ -112,7 +112,7 @@ namespace Assets.Scripts
             _npcTextDict.Add(2, $"Are you {_playerName}? {NameOfDrinkRecipient} told me to look for you and tell you that they wanted a drink");
             _npcTextDict.Add(3, $"There you are {_playerName}! Thank you for the drink! I've heard that {NameOfPersonToFind} would like to talk to you");
             _npcTextDict.Add(4, $"Heeeey {_playerName}! Can you go to the DJ and ask him to change the music?");
-            _npcTextDict.Add(5, "*Sigh* Yeah okay i can play that Katy Perry song again...");
+            _npcTextDict.Add(5, "*Sigh* Yeah okay I can play that Katy Perry song again...");
 
             _objectiveTextDict.Add(1, "Go find the bartender");
             _objectiveTextDict.Add(2, $"Bring the drink to {NameOfDrinkRecipient}");

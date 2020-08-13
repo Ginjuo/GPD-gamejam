@@ -16,7 +16,7 @@ namespace Assets.Scripts
         private string _errorText = "You forgot to enter your name, you can go back and change it";
 
         private string _storyText =
-            $"Halleluja! The lockdown is easing up and you are finally allowed to go to parties with your highschool friends again!  {Environment.NewLine} Your mother drives you to the party and says: You are only allowed to stay here for an hour. Are you sure you dont want to hang out at home instead?.  {Environment.NewLine} You: No! I want to go meet all of my friends!  {Environment.NewLine} You have been to a pre-party and is a bit drunk, so you might stumble into a person or two...  {Environment.NewLine}  {Environment.NewLine} Use<WASD> or arrow keys to move!";
+            $"Halleluja! The lockdown is easing up and you are finally allowed to go to parties with your highschool friends again!{Environment.NewLine}{Environment.NewLine}Your mother drives you to the party and says: You are only allowed to stay here for an hour. Are you sure you dont want to hang out at home instead?{Environment.NewLine}You: No! I want to go meet all of my friends!{Environment.NewLine}{Environment.NewLine}You have been to a pre-party and is a bit drunk, so you might stumble into a person or two... {Environment.NewLine}{Environment.NewLine}Use <WASD> to move around!";
 
         public TMP_InputField PlayerName;
 
