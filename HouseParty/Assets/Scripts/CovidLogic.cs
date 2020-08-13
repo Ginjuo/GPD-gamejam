@@ -19,11 +19,11 @@ namespace Assets.Scripts
             if (covidLogic.HasCovid && Random.Range(1, 101) <= ContractionChance)
             {
                 HasCovid = true;
-                Debug.Log($"{Name} got COVID from: " + covidLogic.Name);
                 if(NameHolder.Instance.GetNpcNames().Contains(Name))
                     NameHolder.Instance.InfectedNames.Add(Name);
 
                 NameHolder.Instance.NumberOfInfected++;
+                //Debug.Log($"{Name} got COVID from: " + covidLogic.Name + " N_infected = " + NameHolder.Instance.NumberOfInfected);
             }
         }
     }

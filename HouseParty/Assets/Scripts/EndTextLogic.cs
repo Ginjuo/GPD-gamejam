@@ -22,6 +22,9 @@ namespace Assets.Scripts
 
             personWithStory = intersection.Count > 0 ? intersection[UnityEngine.Random.Range(0, intersection.Count)] : NameHolder.Instance.InfectedNames.Count > 0 ? NameHolder.Instance.InfectedNames[UnityEngine.Random.Range(0, NameHolder.Instance.InfectedNames.Count)] : "Someone from the party";
             StoryText.text = $"{personWithStory} visited their grandmother the day after the party.{Environment.NewLine}The grandmother then got infected with the virus and passed away shortly after.{Environment.NewLine}{Environment.NewLine}Can you do better?";
+
+            // Emptying N infected
+            NameHolder.Instance.NumberOfInfected = 0;
         }
 
         // Update is called once per frame

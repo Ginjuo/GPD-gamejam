@@ -1640,6 +1640,10 @@ PrefabInstance:
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: ab88ba1e5f0a95b49ad07d73c5e96543, type: 3}
+    - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: CanGetCovid
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.49
@@ -15911,7 +15915,7 @@ PrefabInstance:
       objectReference: {fileID: 287704798}
     - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: CanGetCovid
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -17104,6 +17108,10 @@ PrefabInstance:
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: 3c8e913e3a6814e4891928b6082dfcdb, type: 3}
+    - target: {fileID: 924748223525937200, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
+      propertyPath: CanGetCovid
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 924748223525937201, guid: 4ebf33b8d18544d4f81bdaf47749864c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.6726575
