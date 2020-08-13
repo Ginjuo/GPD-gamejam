@@ -13,12 +13,8 @@ public class NonPlayerCharacter : ObjectiveLogic
     {
         NameText.text = Name;
         HandleDialogInit();
-    }
-    void Awake()
-    {
-        Renderer r = Drink?.GetComponent<Renderer>();
-        if (r != null)
-            r.enabled = true;
+        if (Drink != null)
+            Drink.GetComponent<Renderer>().enabled = true;
     }
 
     void Update()
@@ -31,7 +27,7 @@ public class NonPlayerCharacter : ObjectiveLogic
         if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
         {
             HandleObjective();
-            if (HandlesObjective == 2)
+            if (HandlesObjective == 2 && Drink != null)
             {
                 Renderer r = Drink?.GetComponent<Renderer>();
                 if (r != null)
