@@ -13,8 +13,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011863589, y: 0.08278918}
-  m_Size: {x: 0.9233911, y: 1.0183625}
+  m_Offset: {x: -0.048861027, y: 0.014473975}
+  m_Size: {x: 0.8019419, y: 1.1549929}
   m_Direction: 0
 --- !u!70 &7318695149131463848
 CapsuleCollider2D:
@@ -29,8 +29,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.01, y: -0.35}
-  m_Size: {x: 0.29409397, y: 0.16284561}
+  m_Offset: {x: 0.0039628744, y: -0.4621129}
+  m_Size: {x: 0.29789758, y: 0.13007236}
   m_Direction: 1
 --- !u!82 &801789991451290897
 AudioSource:
@@ -52,7 +52,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.0509424
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
