@@ -40,6 +40,9 @@ namespace Assets.Scripts
             NameText.text = GameController.Instance.GetName(HandlesObjective);
             Name = NameText.text;
 
+            if (Drink != null)
+                Drink.GetComponent<Renderer>().enabled = false;
+
             HandlesObjective = GameController.Instance.GetSpecificObjectiveNumber(Name);
             HandleDialogInit();
 
@@ -56,13 +59,6 @@ namespace Assets.Scripts
             {
                 anim.Play("EllenDance", 0, randomIdleStart);
             }
-        }
-
-        void Awake()
-        {
-            Renderer r = Drink?.GetComponent<Renderer>();
-            if(r != null)
-                r.enabled = false;
         }
 
         void Update()
@@ -116,11 +112,9 @@ namespace Assets.Scripts
             if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
             {
                 HandleObjective();
-                if(HandlesObjective == 3)
+                if(Drink != null && HandlesObjective == 3)
                 {
-                    Renderer r = Drink?.GetComponent<Renderer>();
-                    if (r != null)
-                        r.enabled = true;
+                    Drink.GetComponent<Renderer>().enabled = true;
                 }
             }
 
