@@ -252,10 +252,6 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
-      propertyPath: ContractionChance
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 768411813253470627, guid: c2d4487ab1652054cba2ee61396d0f0f, type: 3}
       propertyPath: TalkClip
       value: 
       objectReference: {fileID: 8300000, guid: ab88ba1e5f0a95b49ad07d73c5e96543, type: 3}
