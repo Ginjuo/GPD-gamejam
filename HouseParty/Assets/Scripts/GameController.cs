@@ -42,7 +42,8 @@ namespace Assets.Scripts
 
         private void FilterAndFixNames()
         {
-            _userDefinedNames = _userDefinedNames.Select(s => s.Split(' ')[0]).ToList();
+            //_userDefinedNames = _userDefinedNames.Select(s => s.Split(' ')[0]).Distinct().ToList();
+            _userDefinedNames = _userDefinedNames.Distinct().ToList();
             _predefinedNames = _predefinedNames.Where(s1 => !_userDefinedNames.Any(s2 => s2.Equals(s1, StringComparison.OrdinalIgnoreCase))).Select(s => s).ToList();
 
             int index;

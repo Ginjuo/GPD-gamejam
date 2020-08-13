@@ -5,18 +5,18 @@ namespace Assets.Scripts
 {
     public class RubyController : CovidLogic
     {
-        public float Speed = 3.5f;
-
-        public float TimeInvincible = 2.0f;
         private bool _isInvincible;
         private float _invincibleTimer;
-
         private Animator _animator;
         private Vector2 _lookDirection = new Vector2(1, 0);
-
         private Rigidbody2D _rigidbody2d;
         private float _horizontal;
         private float _vertical;
+        public float Speed = 3.5f;
+
+        public float TimeInvincible = 2.0f;
+        public GameObject Drink;
+        private bool _hasShownDrink = false;
 
         // >Drunk movement>
         public float drunk_time_x = 0f;
@@ -32,11 +32,6 @@ namespace Assets.Scripts
         private AudioSource _audioSource;
         public AudioClip LoadClip;
 
-        // Start is called before the first frame update
-
-        //Corona
-        //public int Contraction_chance;
-        //public bool HasCOVID;
         void Start()
         {
             _animator = GetComponent<Animator>();
@@ -45,6 +40,11 @@ namespace Assets.Scripts
             Name = "player";
 
             PlaySound(LoadClip);
+        }
+
+        void Awake()
+        {
+            Drink.GetComponent<Renderer>().enabled = false;
         }
 
         public void PlaySound(AudioClip clip)
@@ -140,6 +140,17 @@ namespace Assets.Scripts
             if (cl == null)
                 return;
             GetCovid(cl);
+
+            ObjectiveLogic ol = collider.gameObject.GetComponent<ObjectiveLogic>();
+            if(ol != null && ol.HandlesObjective == 2 && !_hasShownDrink)
+            {
+                _hasShownDrink = true;
+                Drink.GetComponent<Renderer>().enabled = true;
+            }
+            if(ol != null && ol.HandlesObjective == 3 && _hasShownDrink)
+            {
+                Drink.GetComponent<Renderer>().enabled = false;
+            }
         }
 
         //void OnTriggerStay2D(Collider2D collider)

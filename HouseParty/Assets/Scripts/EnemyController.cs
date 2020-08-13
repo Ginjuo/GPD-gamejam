@@ -12,6 +12,7 @@ namespace Assets.Scripts
         private bool _broken = true;
         private Animator _animator;
         public TextMeshProUGUI NameText;
+        public GameObject Drink;
 
         // <Drunk movement>
         public float DrunkPosClamp; //0.2f    
@@ -58,6 +59,13 @@ namespace Assets.Scripts
 
             Debug.Log(girlVar);
 
+        }
+
+        void Awake()
+        {
+            Renderer r = Drink?.GetComponent<Renderer>();
+            if(r != null)
+                r.enabled = false;
         }
 
         void Update()
@@ -109,7 +117,16 @@ namespace Assets.Scripts
             //PlaySound(TalkAudioClip);
 
             if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
+            {
                 HandleObjective();
+                if(HandlesObjective == 3)
+                {
+                    Renderer r = Drink?.GetComponent<Renderer>();
+                    if (r != null)
+                        r.enabled = true;
+                }
+            }
+
 
             CovidLogic cl = collider.gameObject.GetComponent<CovidLogic>();
             if (cl == null)

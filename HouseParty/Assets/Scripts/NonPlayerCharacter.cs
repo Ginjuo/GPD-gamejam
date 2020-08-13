@@ -7,11 +7,18 @@ using UnityEngine;
 public class NonPlayerCharacter : ObjectiveLogic
 {
     public TextMeshProUGUI NameText;
+    public GameObject Drink;
 
     void Start()
     {
         NameText.text = Name;
         HandleDialogInit();
+    }
+    void Awake()
+    {
+        Renderer r = Drink?.GetComponent<Renderer>();
+        if (r != null)
+            r.enabled = true;
     }
 
     void Update()
@@ -22,7 +29,16 @@ public class NonPlayerCharacter : ObjectiveLogic
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
+        {
             HandleObjective();
+            if (HandlesObjective == 2)
+            {
+                Renderer r = Drink?.GetComponent<Renderer>();
+                if (r != null)
+                    r.enabled = false;
+            }
+        }
+
     }
 
     private void OnTriggerExit2D(Collider2D collider)
