@@ -55,9 +55,6 @@ namespace Assets.Scripts
             {
                 anim.Play("EllenDance", 0, randomIdleStart);
             }
-
-            Debug.Log(girlVar);
-
         }
 
         void Update()
