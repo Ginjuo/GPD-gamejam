@@ -672,6 +672,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bord (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 5176466360484536869, guid: 5e0ab9b8bcc33e44b94d04647c5ba085, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6046329514386419028, guid: 5e0ab9b8bcc33e44b94d04647c5ba085, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.4779997
@@ -1012,7 +1016,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -14133,6 +14137,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bord (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 5176466360484536869, guid: 5e0ab9b8bcc33e44b94d04647c5ba085, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6046329514386419028, guid: 5e0ab9b8bcc33e44b94d04647c5ba085, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.0024137
@@ -14801,7 +14809,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -15138,7 +15146,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146299892}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.930918, y: -5.457496, z: 18.410995}
+  m_LocalPosition: {x: -18.841822, y: -5.4581943, z: 18.410995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1725119367}
