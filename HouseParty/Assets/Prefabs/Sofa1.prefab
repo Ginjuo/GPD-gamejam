@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 312923897563615885}
   - component: {fileID: -5099684267920944996}
   m_Layer: 0
-  m_Name: Stol
+  m_Name: Sofa1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -71,8 +71,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: a1814f62cee95d345bb74b0af4375af9, type: 3}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: b78927843cb57ba468bf0e38941c5761, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,16 +96,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.016016662, y: -0.14724505}
+  m_Offset: {x: -0.008611798, y: 0.040321708}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
+    oldSize: {x: 3.6, y: 3.6}
     newSize: {x: 1.31, y: 0.98}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0447615, y: 0.8132336}
+  m_Size: {x: 3.3259294, y: 1.2024076}
   m_EdgeRadius: 0

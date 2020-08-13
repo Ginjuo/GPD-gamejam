@@ -252,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 833c7b5ee9e6d9c47b91b44e9a9784a1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -358,6 +358,7 @@ MonoBehaviour:
   TalkClip: {fileID: 0}
   GetQuestClip: {fileID: 8300000, guid: b031295ad9c8b4745870820b196c013c, type: 3}
   NameText: {fileID: 3176411244010468506}
+  Drink: {fileID: 0}
 --- !u!82 &6507779274110399212
 AudioSource:
   m_ObjectHideFlags: 0
