@@ -354,6 +354,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 474756767174408207, guid: 7c97dd77437092745b53a216a539b246, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 1a0d9d05935d4f74bb9d2afbc80a1950, type: 3}
+    - target: {fileID: 474756767174408207, guid: 7c97dd77437092745b53a216a539b246, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 474756767174408207, guid: 7c97dd77437092745b53a216a539b246, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4250809709216929898, guid: 7c97dd77437092745b53a216a539b246, type: 3}
       propertyPath: m_Name
       value: Car
