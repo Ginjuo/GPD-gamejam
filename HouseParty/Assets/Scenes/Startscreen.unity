@@ -1916,7 +1916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &810922240
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2442,7 +2442,7 @@ MonoBehaviour:
     party and says: \"You are only allowed to stay here for an hour. Are you sure
     you dont want to hang out at home instead?\". \nYou:\" No! I want to go meet
     all of my friends!\"\n\nYou have been to a pre-party and is a bit drunk, so you
-    might stumble a bit...\n\nUse <WASD> to move!"
+    might stumble into a person or two...\n\nUse <WASD> to move!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 2e498d1c8094910479dc3e1b768306a4, type: 2}
@@ -2469,8 +2469,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18
-  m_fontSizeBase: 18
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2505,7 +2505,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 60.94342, y: 8.387085, z: 58.69763, w: 16.455704}
+  m_margin: {x: 73.23572, y: 8.387085, z: 70.98993, w: 16.455704}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3572,7 +3572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1413517063
 RectTransform:
   m_ObjectHideFlags: 0
