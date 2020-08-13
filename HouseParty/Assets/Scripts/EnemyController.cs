@@ -111,11 +111,11 @@ namespace Assets.Scripts
 
             if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
             {
-                HandleObjective();
-                if(Drink != null && HandlesObjective == 3)
+                if (Drink != null && HandlesObjective == GameController.Instance.CurrentObjectiveNumber)
                 {
                     Drink.GetComponent<Renderer>().enabled = true;
                 }
+                HandleObjective();
             }
 
 

@@ -9,7 +9,7 @@ namespace Assets.Scripts
 {
     public class GameController : MonoBehaviour
     {
-        private List<string> _predefinedNames = new List<string> { "Lis", "Sofia", "David", "John", "Eric", "Jess", "Taylor", "Mel", "Denny", "Drew", "Logan", "Edward", "Caden", "Kira", "Emily", "Robyn", "Dennis", "Tobias", "Casper", "Louis", "Alex", "Helena", "Erica", "Anna", "Rene", "Karina" };
+        private List<string> _predefinedNames = new List<string> { "Lis", "Sofia", "David", "John", "Eric", "Jess", "Taylor", "Mel", "Denny", "Drew", "Logan", "Edward", "Caden", "Kira", "Emily", "Robyn", "Dennis", "Tobias", "Casper", "Louis", "Alex", "Helena", "Erica", "Anna", "Rene", "Karina", "Julie", "Maria", "Anders" };
         private List<string> _reservedNames = new List<string>();
         private List<string> _userDefinedNames = new List<string>();
         private string _playerName;

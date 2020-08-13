@@ -26,13 +26,13 @@ public class NonPlayerCharacter : ObjectiveLogic
     {
         if (ShowsDialog && collider.gameObject.GetComponent<RubyController>() != null)
         {
-            HandleObjective();
-            if (HandlesObjective == 2 && Drink != null)
+            if (Drink != null && GameController.Instance.CurrentObjectiveNumber == HandlesObjective)
             {
                 Renderer r = Drink?.GetComponent<Renderer>();
                 if (r != null)
                     r.enabled = false;
             }
+            HandleObjective();
         }
 
     }
