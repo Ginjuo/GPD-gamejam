@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 namespace Assets.Scripts
 {
@@ -27,8 +28,22 @@ namespace Assets.Scripts
 
         public double EndTimer = 120.0d; //2 min
 
+        //void Start()
+        //{
+        //    Tilemap tilemap = GetComponent<Tilemap>();
+        //    if (tilemap == null)
+        //    {
+        //        Debug.Log("Cant find the Tilemap component");
+        //    }
+
+        //    tilemap.SetTileFlags(cellPos, TileFlags.None);
+        //    tilemap.SetColor(cellPos, new Color(0.9820799f, 0.6273585f, 1));
+
+        //}
+
         void Update()
         {
+           
             EndTimer -= Time.deltaTime;
             _uiTimerBar.SetTimerPercent(EndTimer);
 
