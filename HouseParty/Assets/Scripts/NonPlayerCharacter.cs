@@ -35,6 +35,10 @@ public class NonPlayerCharacter : ObjectiveLogic
             HandleObjective();
         }
 
+        RubyController rc = collider.gameObject.GetComponent<RubyController>();
+        if (rc == null)
+            return;
+        GetCovid(rc.gameObject.GetComponent<CovidLogic>());
     }
 
     private void OnTriggerExit2D(Collider2D collider)
