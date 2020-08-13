@@ -118,11 +118,10 @@ namespace Assets.Scripts
                 HandleObjective();
             }
 
-
-            CovidLogic cl = collider.gameObject.GetComponent<CovidLogic>();
-            if (cl == null)
+            RubyController rc = collider.gameObject.GetComponent<RubyController>();
+            if (rc == null)
                 return;
-            GetCovid(cl);
+            GetCovid(rc.gameObject.GetComponent<CovidLogic>());
         }
 
         private void OnTriggerExit2D(Collider2D collider)
